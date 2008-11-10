@@ -1,0 +1,7 @@
+E:\spring\VSProject\psms\IDAL\bin\Debug\psms.IDAL.dll
+E:\spring\VSProject\psms\IDAL\bin\Debug\psms.IDAL.pdb
+E:\spring\VSProject\psms\IDAL\bin\Debug\psms.Model.dll
+E:\spring\VSProject\psms\IDAL\bin\Debug\psms.Model.pdb
+E:\spring\VSProject\psms\IDAL\obj\Debug\ResolveAssemblyReference.cache
+E:\spring\VSProject\psms\IDAL\obj\Debug\psms.IDAL.dll
+E:\spring\VSProject\psms\IDAL\obj\Debug\psms.IDAL.pdb

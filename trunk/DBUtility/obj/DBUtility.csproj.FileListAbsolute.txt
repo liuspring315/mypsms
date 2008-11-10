@@ -1,0 +1,5 @@
+E:\spring\VSProject\psms\DBUtility\bin\Debug\psms.DBUtility.dll
+E:\spring\VSProject\psms\DBUtility\bin\Debug\psms.DBUtility.pdb
+E:\spring\VSProject\psms\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\spring\VSProject\psms\DBUtility\obj\Debug\psms.DBUtility.dll
+E:\spring\VSProject\psms\DBUtility\obj\Debug\psms.DBUtility.pdb

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="psms">
+</Property><Property Name="解决方案文件" Value="E:\spring\network\psms\psms.sln">
+</Property><Property Name="Date" Value="2008年11月10日">
+</Property><Property Name="Time" Value="21:30">
+</Property></Properties><Event ErrorLevel="0" Project="psms" Source="psms\psms.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="psms" Source="psms\psms.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SQLServerDAL" Source="SQLServerDAL\SQLServerDAL.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SQLServerDAL" Source="SQLServerDAL\SQLServerDAL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Model" Source="Model\Model.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="IDAL" Source="IDAL\IDAL.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="IDAL" Source="IDAL\IDAL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="BLL" Source="BLL\BLL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DALFactory" Source="DALFactory\DALFactory.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="DALFactory" Source="DALFactory\DALFactory.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DBUtility" Source="DBUtility\DBUtility.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="DBUtility" Source="DBUtility\DBUtility.csproj" Description="Converted">
+</Event><Event ErrorLevel="2" Project="" Source="psms.sln" Description="无法转换解决方案文件“E:\spring\network\psms\psms.sln”，因为它在磁盘上是只读的。若要转换此解决方案，请将此解决方案文件的权限更改为允许修改，然后重新打开它。">
+</Event><Event ErrorLevel="3" Project="" Source="psms.sln" Description="未转换">
+</Event></UpgradeLog>

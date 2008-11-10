@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[psms.sln]
+SCC_Aux_Path = "D:\vss database"
+SCC_Project_Name = "$/psms/psms", CAAAAAAA
+
+[psms.csproj]
+SCC_Aux_Path = "D:\vss database"
+SCC_Project_Name = "$/psms/psms/psms", TCAAAAAA

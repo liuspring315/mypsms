@@ -1,0 +1,11 @@
+bin\Debug\psms.SQLServerDAL.dll
+bin\Debug\psms.SQLServerDAL.pdb
+bin\Debug\psms.DBUtility.dll
+bin\Debug\psms.IDAL.dll
+bin\Debug\psms.Model.dll
+bin\Debug\psms.Model.pdb
+bin\Debug\psms.IDAL.pdb
+bin\Debug\psms.DBUtility.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\psms.SQLServerDAL.dll
+obj\Debug\psms.SQLServerDAL.pdb
