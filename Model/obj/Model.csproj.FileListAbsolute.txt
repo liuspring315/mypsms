@@ -1,0 +1,5 @@
+E:\spring\VSProject\psms\Model\bin\Debug\psms.Model.dll
+E:\spring\VSProject\psms\Model\bin\Debug\psms.Model.pdb
+E:\spring\VSProject\psms\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\spring\VSProject\psms\Model\obj\Debug\psms.Model.dll
+E:\spring\VSProject\psms\Model\obj\Debug\psms.Model.pdb

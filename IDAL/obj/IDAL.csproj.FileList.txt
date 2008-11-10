@@ -1,0 +1,7 @@
+bin\Debug\psms.IDAL.dll
+bin\Debug\psms.IDAL.pdb
+bin\Debug\psms.Model.dll
+bin\Debug\psms.Model.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\psms.IDAL.dll
+obj\Debug\psms.IDAL.pdb

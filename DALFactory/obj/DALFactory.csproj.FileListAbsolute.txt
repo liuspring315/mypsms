@@ -1,0 +1,9 @@
+E:\spring\VSProject\psms\DALFactory\bin\Debug\psms.DALFactory.dll
+E:\spring\VSProject\psms\DALFactory\bin\Debug\psms.DALFactory.pdb
+E:\spring\VSProject\psms\DALFactory\bin\Debug\psms.IDAL.dll
+E:\spring\VSProject\psms\DALFactory\bin\Debug\psms.Model.dll
+E:\spring\VSProject\psms\DALFactory\bin\Debug\psms.Model.pdb
+E:\spring\VSProject\psms\DALFactory\bin\Debug\psms.IDAL.pdb
+E:\spring\VSProject\psms\DALFactory\obj\Debug\ResolveAssemblyReference.cache
+E:\spring\VSProject\psms\DALFactory\obj\Debug\psms.DALFactory.dll
+E:\spring\VSProject\psms\DALFactory\obj\Debug\psms.DALFactory.pdb

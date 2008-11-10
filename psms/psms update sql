@@ -1,0 +1,128 @@
+--出库outscrp
+CREATE TRIGGER delete_outscrp ON [dbo].[OUTSCRP] 
+for delete
+as
+
+IF @@ROWCOUNT = 1
+BEGIN
+	update PREINFO 
+	set ACC_QNT = acc_qnt + d.qnt
+	from deleted d join preinfo p on d.p_no = p.p_no
+
+	
+END
+ELSE
+BEGIN
+   UPDATE PREINFO
+   SET ACC_QNT = ACC_QNT +
+   	(SELECT SUM(d.qnt)
+      		FROM deleted d
+     		 WHERE PREINFO.p_no = d.p_no)
+   WHERE PREINFO.p_no IN
+      (SELECT p_no FROM deleted)
+END
+
+Insert into PREACC (in_out,scrp_no,p_no,qnt,cost,s_qnt,s_cost)
+	 select '出库删除', d.out_scrpno,p.p_no,d.qnt,d.out_price,acc_qnt,acc_qnt * unit_price  
+	from deleted d join preinfo p on d.p_no = p.p_no
+
+
+IF (@@error <> 0)
+BEGIN
+  ROLLBACK TRANSACTION
+END
+
+--==================================================================================================================
+
+CREATE TRIGGER insert_outscrp ON [dbo].[OUTSCRP] 
+for insert
+as
+
+BEGIN
+
+		declare @p_no varchar(50),@qnt int
+		select @p_no=p_No,@qnt=qnt from inserted
+		update PREINFO set ACC_QNT = acc_qnt - @qnt where P_NO = @p_no
+	
+END
+
+Insert into PREACC (in_out,scrp_no,p_no,qnt,cost,s_qnt,s_cost)
+	 select '出库插入', d.out_scrpno,p.p_no,d.qnt,d.out_price,acc_qnt,acc_qnt * unit_price  
+	from deleted d join preinfo p on d.p_no = p.p_no
+
+IF (@@error <> 0)
+BEGIN
+  ROLLBACK TRANSACTION
+END
+
+
+
+--============================入库inscrp================================================
+
+CREATE TRIGGER delete_inscrp ON [dbo].[INSCRP] 
+for delete
+as
+
+
+IF @@ROWCOUNT = 1
+BEGIN
+	update PREINFO 
+	set ACC_QNT = acc_qnt - d.qnt
+	from deleted d join preinfo p on d.p_no = p.p_no
+
+	
+END
+ELSE
+BEGIN
+   UPDATE PREINFO
+   SET ACC_QNT = ACC_QNT -
+   	(SELECT SUM(d.qnt)
+      		FROM deleted d
+     		 WHERE PREINFO.p_no = d.p_no)
+   WHERE PREINFO.p_no IN
+      (SELECT p_no FROM deleted)
+END
+
+Insert into PREACC (in_out,scrp_no,p_no,qnt,cost,s_qnt,s_cost)
+	 select '入库删除', d.in_scrpno,p.p_no,d.qnt,d.in_price,acc_qnt,acc_qnt * unit_price  
+	from deleted d join preinfo p on d.p_no = p.p_no
+
+
+IF (@@error <> 0)
+BEGIN
+  ROLLBACK TRANSACTION
+END
+
+--==================================================================================================================、
+
+CREATE TRIGGER insert_inscrp ON [dbo].[INSCRP] 
+for insert
+as
+
+BEGIN
+
+		declare @p_no varchar(50),@qnt int
+		select @p_no=p_No,@qnt=qnt from inserted
+		update PREINFO set ACC_QNT = acc_qnt + @qnt where P_NO = @p_no
+	
+END
+
+Insert into PREACC (in_out,scrp_no,p_no,qnt,cost,s_qnt,s_cost)
+	 select '入库插入', d.in_scrpno,p.p_no,d.qnt,d.in_price,acc_qnt,acc_qnt * unit_price  
+	from inserted d join preinfo p on d.p_no = p.p_no
+
+IF (@@error <> 0)
+BEGIN
+  ROLLBACK TRANSACTION
+END
+
+
+--==================================================================================================================、
+
+ALTER TABLE PREACC 
+ADD AddDate smalldatetime NULL
+CONSTRAINT AddDateDflt
+DEFAULT getdate() WITH VALUES
+
+
+DBCC CHECKIDENT ('preacc', RESEED, 1)

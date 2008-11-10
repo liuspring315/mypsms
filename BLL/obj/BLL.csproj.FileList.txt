@@ -1,0 +1,11 @@
+bin\Debug\psms.BLL.dll
+bin\Debug\psms.BLL.pdb
+bin\Debug\psms.DALFactory.dll
+bin\Debug\psms.IDAL.dll
+bin\Debug\psms.Model.dll
+bin\Debug\psms.IDAL.pdb
+bin\Debug\psms.Model.pdb
+bin\Debug\psms.DALFactory.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\psms.BLL.dll
+obj\Debug\psms.BLL.pdb

@@ -1,0 +1,510 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD610A48-D46F-486D-B312-21DF84C2BA27}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>psms</RootNamespace>
+    <AssemblyName>psms</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ManifestCertificateThumbprint>01BE160179B168D855AD81F39E48C5078E818CFA</ManifestCertificateThumbprint>
+    <ManifestKeyFile>psms_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <SignManifests>false</SignManifests>
+    <PublishUrl>http://localhost/psms/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>0</FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddPreInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPreInfoForm.Designer.cs">
+      <DependentUpon>AddPreInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarForm.Designer.cs">
+      <DependentUpon>BarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharForm.Designer.cs">
+      <DependentUpon>CharForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckTableForm.Designer.cs">
+      <DependentUpon>CheckTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InOutACCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InOutACCForm.Designer.cs">
+      <DependentUpon>InOutACCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InOutPieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InOutPieForm.Designer.cs">
+      <DependentUpon>InOutPieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InTableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InTableReportForm.Designer.cs">
+      <DependentUpon>InTableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieForm.Designer.cs">
+      <DependentUpon>PieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryCheckTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryCheckTableForm.Designer.cs">
+      <DependentUpon>QueryCheckTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryInTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryInTableForm.Designer.cs">
+      <DependentUpon>QueryInTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryOutTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryOutTableForm.Designer.cs">
+      <DependentUpon>QueryOutTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryPreInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryPreInfoForm.Designer.cs">
+      <DependentUpon>QueryPreInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatInOutTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatInOutTableForm.Designer.cs">
+      <DependentUpon>StatInOutTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuiKuTableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuiKuTableReportForm.Designer.cs">
+      <DependentUpon>TuiKuTableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnInTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnInTableForm.Designer.cs">
+      <DependentUpon>UnInTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateInTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateInTableForm.Designer.cs">
+      <DependentUpon>UpdateInTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOutTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOutTableForm.Designer.cs">
+      <DependentUpon>UpdateOutTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\ConvertNumber.cs" />
+    <Compile Include="util\DataGirdViewUtil.cs" />
+    <Compile Include="InOutTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InOutTableForm.Designer.cs">
+      <DependentUpon>InOutTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InTableForm.Designer.cs">
+      <DependentUpon>InTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddPreInfoForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AddPreInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CharForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CheckTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InOutACCForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InOutACCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InOutPieForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InOutPieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InOutTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InOutTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InTableReportForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InTableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryCheckTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QueryCheckTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryInTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QueryInTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryOutTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QueryOutTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryPreInfoForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QueryPreInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetInfoForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SetInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Start.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="psms update sql" />
+    <None Include="word\提货凭证横版.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="word\出库单横版.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="word\出库单竖版.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="word\提货凭证竖版.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="邮品库系统文档\邮品库管理系统使用手册.doc" />
+    <None Include="邮品库系统文档\邮品库管理系统功能验收报告.doc" />
+    <None Include="邮品库系统文档\邮品库管理系统系统设计文档.doc" />
+    <None Include="邮品库系统文档\邮品库管理系统需求报告.doc" />
+    <None Include="邮品库系统文档\邮品库管理系统项目建议书.doc" />
+    <EmbeddedResource Include="skin\Calmness.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\DeepCyan.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\DiamondBlue.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Eighteen.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Emerald.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\GlassBrown.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Longhorn.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\MacOS.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Midsummer.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\MP10.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\MSN.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\OneBlue.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Page.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\RealOne.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Silver.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\SportsBlack.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\SteelBlack.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\vista1.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Vista2.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Warm.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\Wave.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="skin\XPSilver.ssk">
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatInOutTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StatInOutTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuiKuTableReportForm.resx">
+      <DependentUpon>TuiKuTableReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnInTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UnInTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateInTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UpdateInTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOutTableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UpdateOutTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutTableReportForm.resx">
+      <DependentUpon>OutTableReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VipOuReportForm.resx">
+      <DependentUpon>VipOuReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutOuReportForm.resx">
+      <DependentUpon>OutOuReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InOutReportForm.resx">
+      <DependentUpon>InOutReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReSetPreInfoForm.resx">
+      <DependentUpon>ReSetPreInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SetInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetInfoForm.Designer.cs">
+      <DependentUpon>SetInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinClass.cs" />
+    <Compile Include="Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\DataGridViewPrinter.cs" />
+    <Compile Include="util\ExcelHelper.cs" />
+    <Compile Include="util\Log.cs" />
+    <Compile Include="util\MyMessageBox.cs" />
+    <Compile Include="util\PieChart.cs" />
+    <Compile Include="util\ReportUtil.cs" />
+    <Compile Include="util\StrUtil.cs" />
+    <Compile Include="OutTableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutTableReportForm.Designer.cs">
+      <DependentUpon>OutTableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\SumData.cs" />
+    <Compile Include="util\ValueObject.cs" />
+    <Compile Include="util\WordHelper.cs" />
+    <Compile Include="VipOuReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VipOuReportForm.Designer.cs">
+      <DependentUpon>VipOuReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutOuReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutOuReportForm.Designer.cs">
+      <DependentUpon>OutOuReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InOutReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InOutReportForm.Designer.cs">
+      <DependentUpon>InOutReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReSetPreInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReSetPreInfoForm.Designer.cs">
+      <DependentUpon>ReSetPreInfoForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{6C075C01-B1F5-4A3A-8E9C-944F9CF150E2}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{0908F1E1-5C43-4D78-A50E-B4FAD129B923}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
+      <Project>{CE0EDB0B-B5D9-4E31-A8D0-B3933A8E2160}</Project>
+      <Name>SQLServerDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\main.jpg" />
+    <Content Include="images\管理2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\log\" />
+    <Folder Include="log\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

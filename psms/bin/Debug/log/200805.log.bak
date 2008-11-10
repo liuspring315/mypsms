@@ -1,0 +1,38 @@
+2008-5-16 22:02:37
+入库统计报表，错误信息：System.Data.SqlClient.SqlException: 第 1 行: '.' 附近有语法错误。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 psms.DBUtility.SqlHelper.ExecuteReader(String connectionString, CommandType cmdType, String cmdText, SqlParameter[] commandParameters) 位置 E:\spring\VSProject\psms\DBUtility\SQLHelper.cs:行号 124
+   在 psms.SQLServerDAL.InTable.GetDataTableReInTableForReport(String startTime, String endTime, String condition) 位置 E:\spring\VSProject\psms\SQLServerDAL\InTable.cs:行号 296
+   在 psms.BLL.InTable.GetDataTableReInTableForReport(String startTime, String endTime, String condition) 位置 E:\spring\VSProject\psms\BLL\InTable.cs:行号 149
+   在 psms.TuiKuTableReportForm.btnQuery_Click(Object sender, EventArgs e) 位置 E:\spring\VSProject\psms\psms\TuiKuTableReportForm.cs:行号 179
+
+2008-5-16 22:07:45
+入库统计报表，错误信息：System.Data.SqlClient.SqlException: 列前缀 'inscrp' 与查询中所用的表名或别名不匹配。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 psms.DBUtility.SqlHelper.ExecuteReader(String connectionString, CommandType cmdType, String cmdText, SqlParameter[] commandParameters) 位置 E:\spring\VSProject\psms\DBUtility\SQLHelper.cs:行号 124
+   在 psms.SQLServerDAL.InTable.GetDataTableReInTableForReport(String startTime, String endTime, String condition) 位置 E:\spring\VSProject\psms\SQLServerDAL\InTable.cs:行号 296
+   在 psms.BLL.InTable.GetDataTableReInTableForReport(String startTime, String endTime, String condition) 位置 E:\spring\VSProject\psms\BLL\InTable.cs:行号 149
+   在 psms.TuiKuTableReportForm.btnQuery_Click(Object sender, EventArgs e) 位置 E:\spring\VSProject\psms\psms\TuiKuTableReportForm.cs:行号 179
+

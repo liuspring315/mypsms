@@ -1,0 +1,11 @@
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.BLL.dll
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.BLL.pdb
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.DALFactory.dll
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.IDAL.dll
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.Model.dll
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.IDAL.pdb
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.Model.pdb
+E:\spring\VSProject\psms\BLL\bin\Debug\psms.DALFactory.pdb
+E:\spring\VSProject\psms\BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\spring\VSProject\psms\BLL\obj\Debug\psms.BLL.dll
+E:\spring\VSProject\psms\BLL\obj\Debug\psms.BLL.pdb
