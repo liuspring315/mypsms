@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psms", "psms\psms.csproj", "{CD610A48-D46F-486D-B312-21DF84C2BA27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLServerDAL", "SQLServerDAL\SQLServerDAL.csproj", "{CE0EDB0B-B5D9-4E31-A8D0-B3933A8E2160}"
@@ -18,34 +18,6 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupPsms", "SetupPsms\SetupPsms.vdproj", "{4BB31109-8C6E-4EF1-9E7D-C2D001DAFBDF}"
 EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 9
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = BLL\\BLL.csproj
-		SccLocalPath1 = .
-		SccProjectFilePathRelativizedFromConnection1 = BLL\\
-		SccProjectUniqueName2 = DALFactory\\DALFactory.csproj
-		SccLocalPath2 = .
-		SccProjectFilePathRelativizedFromConnection2 = DALFactory\\
-		SccProjectUniqueName3 = DBUtility\\DBUtility.csproj
-		SccLocalPath3 = .
-		SccProjectFilePathRelativizedFromConnection3 = DBUtility\\
-		SccProjectUniqueName4 = IDAL\\IDAL.csproj
-		SccLocalPath4 = .
-		SccProjectFilePathRelativizedFromConnection4 = IDAL\\
-		SccProjectUniqueName5 = Model\\Model.csproj
-		SccLocalPath5 = .
-		SccProjectFilePathRelativizedFromConnection5 = Model\\
-		SccProjectUniqueName6 = psms\\psms.csproj
-		SccLocalPath6 = .
-		SccProjectFilePathRelativizedFromConnection6 = psms\\
-		SccProjectUniqueName7 = SetupPsms\\SetupPsms.vdproj
-		SccLocalPath7 = .
-		SccProjectFilePathRelativizedFromConnection7 = SetupPsms\\
-		SccProjectUniqueName8 = SQLServerDAL\\SQLServerDAL.csproj
-		SccLocalPath8 = .
-		SccProjectFilePathRelativizedFromConnection8 = SQLServerDAL\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

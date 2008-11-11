@@ -52,9 +52,16 @@ namespace psms
 
         private void StartForm_Load(object sender, EventArgs e)
         {
-            setComboBoxPno(this.comboBoxUserName);
-            setComboBoxPno(this.comboBoxUserName2);
-            this.txtPassword.Focus();
+            try
+            {
+                setComboBoxPno(this.comboBoxUserName);
+                setComboBoxPno(this.comboBoxUserName2);
+                this.txtPassword.Focus();
+            }
+            catch (Exception ex)
+            {
+                MyMessageBox.ShowErrorMessageBox("用户登录出错，请检查数据库服务", ex);
+            }
         }
 
 

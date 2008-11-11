@@ -330,11 +330,11 @@ namespace psms.util
             DataTable dt1 = bllPreInfo.GetDataTableBySql(sql1);
             if (dt1 != null && dt1.Rows.Count > 0)
             {
-                scrpNo = scrpNo + bllPreInfo.GetDataTableBySql(sql1).Rows[0][0].ToString().Substring(5) + "至";
+                scrpNo = scrpNo + bllPreInfo.GetDataTableBySql(sql1).Rows[0][0].ToString().Substring(5) + " 至 ";
             }
             else
             {
-                scrpNo = scrpNo + "0 至";
+                scrpNo = scrpNo + "0 至 ";
             }
             DataTable dt2 = bllPreInfo.GetDataTableBySql(sql2);
             if (dt2 != null && dt2.Rows.Count > 0)
