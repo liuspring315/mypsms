@@ -470,6 +470,7 @@
   <ItemGroup>
     <Content Include="images\main.jpg" />
     <Content Include="images\管理2.jpg" />
+    <Content Include="update.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
