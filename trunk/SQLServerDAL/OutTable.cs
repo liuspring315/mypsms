@@ -80,8 +80,9 @@ namespace psms.SQLServerDAL
 
         /// <summary>
         /// 得到最大的出库凭证编号
+        /// 2008年12月20日 修改 原来为SELECT TOP 1 OUT_SCRPNO FROM OUTTABLE ORDER BY OUT_SCRPNO DESC
         /// </summary>
-        private const string SQL_SELECT_TOP_OUT_SCRPNO = "SELECT TOP 1 OUT_SCRPNO FROM OUTTABLE ORDER BY OUT_SCRPNO DESC";
+        private const string SQL_SELECT_TOP_OUT_SCRPNO = "SELECT TOP 1 OUT_SCRPNO FROM OUTTABLE ORDER BY CONVERT(int,REPLACE(out_scrpno,'-','')) DESC";
 
 
         //删除出库凭证信息sql
