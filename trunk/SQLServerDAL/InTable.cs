@@ -89,7 +89,7 @@ namespace psms.SQLServerDAL
         /// 得到最大的凭证编号
         /// 2008年12月20日 修改 原来为select top 1 in_scrpno from intable order by in_scrpno desc
         /// </summary>
-        private const string SQL_SELECT_TOP_IN_SCRPNO = "select top 1 in_scrpno from intable WHERE CHARINDEX('-',in_scrpno,6) = 0 order by CONVERT(int,REPLACE(in_scrpno,'-','')) desc";
+        private const string SQL_SELECT_TOP_IN_SCRPNO = "select top 1 in_scrpno from intable WHERE CHARINDEX('-',in_scrpno,6) = 0 AND ISNUMERIC(REPLACE(in_scrpno,'-','')) = 1 order by CONVERT(int,REPLACE(in_scrpno,'-','')) desc";
 
 
 
