@@ -269,25 +269,32 @@ namespace psms
         //DataGridView按钮列处理事件
         private void dataGridViewIntable_PreInfoList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dataGridViewIntable_PreInfoList.Columns[e.ColumnIndex].Name == "deleteColumn")
+            try
             {
-                int id = Int32.Parse(this.dataGridViewIntable_PreInfoList.Rows[e.RowIndex].Cells["Id"].Value.ToString().Trim());
-                for (int i = 0; i < inScrpList.Count; i++)
+                if (this.dataGridViewIntable_PreInfoList.Columns[e.ColumnIndex].Name == "deleteColumn")
                 {
-                    InScrpInfo data = inScrpList[i];
-                    if (data.Id == id)
+                    int id = Int32.Parse(this.dataGridViewIntable_PreInfoList.Rows[e.RowIndex].Cells["Id"].Value.ToString().Trim());
+                    for (int i = 0; i < inScrpList.Count; i++)
                     {
-                        //从列表中移除
-                        inScrpList.Remove(data);
-                        //重新计算凭证结算金额
-                        decimal incost = decimal.Parse(this.txtInTableIn_Cost.Text.Trim());
-                        this.txtInTableIn_Cost.Text = (incost - data.In_price).ToString();
-                        break;
+                        InScrpInfo data = inScrpList[i];
+                        if (data.Id == id)
+                        {
+                            //从列表中移除
+                            inScrpList.Remove(data);
+                            //重新计算凭证结算金额
+                            decimal incost = decimal.Parse(this.txtInTableIn_Cost.Text.Trim());
+                            this.txtInTableIn_Cost.Text = (incost - data.In_price).ToString();
+                            break;
+                        }
                     }
+                    //
+                    //重新绑定凭证包含宣传品列表
+                    this.dataGridViewIntable_PreInfoList.DataSource = inScrpList;
                 }
-                //
-                //重新绑定凭证包含宣传品列表
-                this.dataGridViewIntable_PreInfoList.DataSource = inScrpList;
+            }
+            catch (Exception ex)
+            {
+                MyMessageBox.ShowErrorMessageBox("DataGridView按钮列处理事件", ex);
             }
         }
 
@@ -914,25 +921,32 @@ namespace psms
         //宣传品DataGirdView按钮列处理事件
         private void dataGridViewOutTable_PreInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dataGridViewOutTable_PreInfo.Columns[e.ColumnIndex].Name == "dataGridViewButtonColumnDelButton")
+            try
             {
-                int id = Int32.Parse(this.dataGridViewOutTable_PreInfo.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumnOutTable_Id"].Value.ToString().Trim());
-                for (int i = 0; i < outScrpList.Count; i++)
+                if (this.dataGridViewOutTable_PreInfo.Columns[e.ColumnIndex].Name == "dataGridViewButtonColumnDelButton")
                 {
-                    OutScrpInfo data = outScrpList[i];
-                    if (data.Id == id)
+                    int id = Int32.Parse(this.dataGridViewOutTable_PreInfo.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumnOutTable_Id"].Value.ToString().Trim());
+                    for (int i = 0; i < outScrpList.Count; i++)
                     {
-                        //从列表中移除
-                        outScrpList.Remove(data);
-                        //重新计算凭证结算金额
-                        decimal outcost = decimal.Parse(this.txtOutTable_Out_cost.Text.Trim());
-                        this.txtOutTable_Out_cost.Text = (outcost - data.Out_price).ToString();
-                        break;
+                        OutScrpInfo data = outScrpList[i];
+                        if (data.Id == id)
+                        {
+                            //从列表中移除
+                            outScrpList.Remove(data);
+                            //重新计算凭证结算金额
+                            decimal outcost = decimal.Parse(this.txtOutTable_Out_cost.Text.Trim());
+                            this.txtOutTable_Out_cost.Text = (outcost - data.Out_price).ToString();
+                            break;
+                        }
                     }
+                    //
+                    //重新绑定凭证包含宣传品列表
+                    this.dataGridViewOutTable_PreInfo.DataSource = outScrpList;
                 }
-                //
-                //重新绑定凭证包含宣传品列表
-                this.dataGridViewOutTable_PreInfo.DataSource = outScrpList;
+            }
+            catch (Exception ex)
+            {
+                MyMessageBox.ShowErrorMessageBox("宣传品DataGirdView按钮列处理事件", ex);
             }
         }
 
