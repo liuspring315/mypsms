@@ -734,13 +734,36 @@ namespace psms
                         MyMessageBox.ShowInfoMessageBox("É¾³ý³É¹¦£¬¿â´æÒÑ»Ö¸´");
                         if (this.showMain)
                         {
-                            if (this.btnLast.Enabled)
+                            //if (this.btnLast.Enabled)
+                            //{
+                            //    btnNext_Click(sender, e);
+                            //}
+                            //else
+                            //{
+                            //    btnOne_Click(sender, e);
+                            //}
+                            this.inTableList = new BLL.InTable().GetAllInTable();
+
+                            count = this.inTableList.Count;
+                            setGroupUpdateIntableText();
+                            this.btnPrv.Enabled = true;
+                            this.btnOne.Enabled = true;
+                            this.btnNext.Enabled = true;
+                            this.btnLast.Enabled = true;
+                            if (count > 0)
                             {
-                                btnNext_Click(sender, e);
+                                this.index = 0;
+                                setTextByIntableInfo();
+                            }
+                            if (count > 1)
+                            {
+                                this.btnPrv.Enabled = false;
+                                this.btnOne.Enabled = false;
                             }
                             else
                             {
-                                btnOne_Click(sender, e);
+                                this.btnNext.Enabled = false;
+                                this.btnLast.Enabled = false;
                             }
                         }
                         else
