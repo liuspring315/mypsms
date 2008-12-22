@@ -75,8 +75,15 @@ namespace psms
             {
                 startTime = this.comboBoxYear.Text.Trim() + "-" + this.comboBoxMonth.Text.Trim() + "-01";
                 int m = Int32.Parse(this.comboBoxMonth.Text.Trim()) + 1;
-                string mon = m < 10 ? "" + m.ToString() : m.ToString();
-                endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                if (m == 13)
+                {
+                    endTime = (Int32.Parse(this.comboBoxYear.Text.Trim()) + 1).ToString() + "-01-01";
+                }
+                else
+                {
+                    string mon = m < 10 ? "0" + m.ToString() : m.ToString();
+                    endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                }
                 endTime = DateTime.Parse(endTime).AddDays(-1).ToShortDateString();
                 this.title = this.comboBoxYear.Text.Trim() + "年" + this.comboBoxMonth.Text.Trim() + "月";
 
@@ -179,8 +186,15 @@ namespace psms
                 {
                     startTime = this.comboBoxYear.Text.Trim() + "-" + this.comboBoxMonth.Text.Trim() + "-01";
                     int m = Int32.Parse(this.comboBoxMonth.Text.Trim()) + 1;
-                    string mon = m < 10 ? "" + m.ToString() : m.ToString();
-                    endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    if (m == 13)
+                    {
+                        endTime = (Int32.Parse(this.comboBoxYear.Text.Trim()) + 1).ToString() + "-01-01";
+                    }
+                    else
+                    {
+                        string mon = m < 10 ? "0" + m.ToString() : m.ToString();
+                        endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    }
                     endTime = DateTime.Parse(endTime).AddDays(-1).ToShortDateString();
                     this.title = this.comboBoxYear.Text.Trim() + "年" + this.comboBoxMonth.Text.Trim() + "月";
 
@@ -225,8 +239,8 @@ namespace psms
                 //util.ReportUtil.setDataForAxlgxgrid(list, this.axlgxgridInTableReport, 1);
                 this.dataGridView1.DataSource = dt;
 
-                getScrpNoSql[0] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_scrpno asc";
-                getScrpNoSql[1] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_scrpno desc";
+                getScrpNoSql[0] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_date asc,intable.in_scrpno asc";
+                getScrpNoSql[1] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_date desc,intable.in_scrpno desc";
             }
             catch (Exception ex)
             {
