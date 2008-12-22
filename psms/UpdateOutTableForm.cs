@@ -368,25 +368,32 @@ namespace psms
 
         private void dataGridViewOutTable_PreInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dataGridViewOutTable_PreInfo.Columns[e.ColumnIndex].Name == "dataGridViewButtonColumnDelButton")
+            try
             {
-                int id = Int32.Parse(this.dataGridViewOutTable_PreInfo.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumnOutTable_Id"].Value.ToString().Trim());
-                for (int i = 0; i < newOutScrpList.Count; i++)
+                if (this.dataGridViewOutTable_PreInfo.Columns[e.ColumnIndex].Name == "dataGridViewButtonColumnDelButton")
                 {
-                    OutScrpInfo data = newOutScrpList[i];
-                    if (data.Id == id)
+                    int id = Int32.Parse(this.dataGridViewOutTable_PreInfo.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumnOutTable_Id"].Value.ToString().Trim());
+                    for (int i = 0; i < newOutScrpList.Count; i++)
                     {
-                        //从列表中移除
-                        newOutScrpList.Remove(data);
-                        //重新计算凭证结算金额
-                        decimal outcost = decimal.Parse(this.txtOutTable_Out_cost.Text.Trim());
-                        this.txtOutTable_Out_cost.Text = (outcost - data.Out_price).ToString();
-                        break;
+                        OutScrpInfo data = newOutScrpList[i];
+                        if (data.Id == id)
+                        {
+                            //从列表中移除
+                            newOutScrpList.Remove(data);
+                            //重新计算凭证结算金额
+                            decimal outcost = decimal.Parse(this.txtOutTable_Out_cost.Text.Trim());
+                            this.txtOutTable_Out_cost.Text = (outcost - data.Out_price).ToString();
+                            break;
+                        }
                     }
+                    //
+                    //重新绑定凭证包含宣传品列表
+                    this.dataGridViewOutTable_PreInfo.DataSource = newOutScrpList;
                 }
-                //
-                //重新绑定凭证包含宣传品列表
-                this.dataGridViewOutTable_PreInfo.DataSource = newOutScrpList;
+            }
+            catch (Exception ex)
+            {
+                MyMessageBox.ShowErrorMessageBox("dataGrid列表点击事件", ex);
             }
         }
 
@@ -833,13 +840,36 @@ namespace psms
                         MyMessageBox.ShowInfoMessageBox("删除成功，库存已恢复");
                         if (this.showMain)
                         {
-                            if (this.btnLast.Enabled)
+                            //if (this.btnLast.Enabled)
+                            //{
+                            //    btnNext_Click(sender, e);
+                            //}
+                            //else
+                            //{
+                            //    btnOne_Click(sender, e);
+                            //}
+                            this.outTableList = new BLL.OutTable().GetAllOutTable();
+
+                            count = this.outTableList.Count;
+                            setGroupUpdateOutTableText();
+                            this.btnPrv.Enabled = true;
+                            this.btnOne.Enabled = true;
+                            this.btnNext.Enabled = true;
+                            this.btnLast.Enabled = true;
+                            if (count > 0)
                             {
-                                btnNext_Click(sender, e);
+                                this.index = 0;
+                                setTextByOutTableInfo();
+                            }
+                            if (count > 1)
+                            {
+                                this.btnPrv.Enabled = false;
+                                this.btnOne.Enabled = false;
                             }
                             else
                             {
-                                btnOne_Click(sender, e);
+                                this.btnNext.Enabled = false;
+                                this.btnLast.Enabled = false;
                             }
                         }
                         else
