@@ -20,11 +20,11 @@ namespace psms.SQLServerDAL
         // Static constants
 
         //得到所有出库凭证信息sql
-        private const string SQL_SELECT_OutTable_ALL = "SELECT out_scrpno,out_ou,out_date,out_cost,"+
-			"vip_ou,out_acc,out_memo from OutTable ";
+        private const string SQL_SELECT_OutTable_ALL = "SELECT out_scrpno,out_ou,convert(char(10),out_date,20) as out_date,out_cost," +
+            "vip_ou,out_acc,out_memo from OutTable order by out_date";
 
         //根据条件得到出库凭证信息sql
-        private const string SQL_SELECT_OUTTABLE_BY_CONDITION = "SELECT DISTINCT o.out_scrpno,out_ou,out_date,out_cost," +
+        private const string SQL_SELECT_OUTTABLE_BY_CONDITION = "SELECT DISTINCT o.out_scrpno,out_ou,convert(char(10),out_date,20) as out_date,out_cost," +
             "vip_ou,out_acc,out_memo from OutTable o,OutScrp s,preInfo p where o.out_scrpno = s.out_scrpno and s.p_no = p.p_no and 1=1 ";
         
         //凭证数据统计
@@ -326,7 +326,7 @@ namespace psms.SQLServerDAL
             parms[0].Value = startTime;
             parms[1].Value = endTime;
             //Execute the query against the database
-            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_OUTTABLE_FOR_OUTSTAT2 + condition + " order by outtable.out_scrpno,outtable.out_date, outscrp.p_no", parms))
+            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_OUTTABLE_FOR_OUTSTAT2 + condition + " order by outtable.out_date,outtable.out_scrpno, outscrp.p_no", parms))
             {
                 // Scroll through the results
                 dt = SqlHelper.DataReaderToTable(rdr);
@@ -377,7 +377,8 @@ namespace psms.SQLServerDAL
                     OutTableInfo inInfoData = new OutTableInfo(
                         (SqlHelper.GetStringValue(rdr[0])).Trim(),
                         (SqlHelper.GetStringValue(rdr[1])).Trim(),
-                        (rdr[2] == null || rdr[2] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(2),
+                        //(rdr[2] == null || rdr[2] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(2),
+                        DateTime.Parse((SqlHelper.GetStringValue(rdr[2])).Trim()),
                         (rdr[3] == null || rdr[3] == DBNull.Value) ? 0 : rdr.GetDecimal(3),
                         (SqlHelper.GetStringValue(rdr[4])).Trim(),
                         (rdr[5] == null || rdr[5] == DBNull.Value) ? 0 : rdr.GetInt32(5),
@@ -402,8 +403,8 @@ namespace psms.SQLServerDAL
             IList<OutTableInfo> allOutTable = new List<OutTableInfo>();
 
             //Execute the query against the database
-            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, 
-                SQL_SELECT_OUTTABLE_BY_CONDITION + condition + " order by o.out_scrpno, out_date"))
+            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text,
+                SQL_SELECT_OUTTABLE_BY_CONDITION + condition + " order by  out_date,o.out_scrpno"))
             {
                 // Scroll through the results
                 while (rdr.Read())
@@ -412,7 +413,8 @@ namespace psms.SQLServerDAL
                     OutTableInfo inInfoData = new OutTableInfo(
                         (SqlHelper.GetStringValue(rdr[0])).Trim(),
                         (SqlHelper.GetStringValue(rdr[1])).Trim(),
-                        (rdr[2] == null || rdr[2] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(2),
+                        //(rdr[2] == null || rdr[2] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(2),
+                        DateTime.Parse((SqlHelper.GetStringValue(rdr[2])).Trim()),
                         (rdr[3] == null || rdr[3] == DBNull.Value) ? 0 : rdr.GetDecimal(3),
                         (SqlHelper.GetStringValue(rdr[4])).Trim(),
                         (rdr[5] == null || rdr[5] == DBNull.Value) ? 0 : rdr.GetInt32(5),
@@ -433,7 +435,7 @@ namespace psms.SQLServerDAL
             //out_scrpno,out_ou,out_date,out_cost,vip_ou,out_acc,out_memo
             
             OutTableParms[0].Value = data.Out_ou;
-            OutTableParms[1].Value = data.Out_date.ToShortDateString();
+            OutTableParms[1].Value = data.Out_date.ToString();
             OutTableParms[2].Value = data.Out_cost;
             OutTableParms[3].Value = data.Vip_ou;
             OutTableParms[4].Value = data.Out_acc;
@@ -505,7 +507,7 @@ namespace psms.SQLServerDAL
             //out_scrpno,out_ou,out_date,out_cost,vip_ou,out_acc,out_memo
             OutTableParms[0].Value = data.Out_scrpno;
             OutTableParms[1].Value = data.Out_ou;
-            OutTableParms[2].Value = data.Out_date.ToShortDateString();
+            OutTableParms[2].Value = data.Out_date.ToString();
             OutTableParms[3].Value = data.Out_cost;
             OutTableParms[4].Value = data.Vip_ou;
             OutTableParms[5].Value = data.Out_acc;

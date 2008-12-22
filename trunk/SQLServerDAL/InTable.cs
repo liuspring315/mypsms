@@ -22,11 +22,11 @@ namespace psms.SQLServerDAL
         // Static constants
 
         //得到所有入库凭证信息sql
-        private const string SQL_SELECT_INTABLE_ALL = "SELECT in_scrpno,billno,in_ou,in_date,in_cost,"+
-			"planin,goodsAcc,in_acc,in_memo from INTABLE ";
+        private const string SQL_SELECT_INTABLE_ALL = "SELECT in_scrpno,billno,in_ou,convert(char(10),in_date,20) as in_date,in_cost," +
+            "planin,goodsAcc,in_acc,in_memo from INTABLE order by in_date";
 
         //根据条件得到入库凭证信息sql
-        private const string SQL_SELECT_INTABLE_BY_CONDITION = "SELECT DISTINCT i.in_scrpno,billno,in_ou,in_date,in_cost," +
+        private const string SQL_SELECT_INTABLE_BY_CONDITION = "SELECT DISTINCT i.in_scrpno,billno,in_ou,convert(char(10),in_date,20) as in_date,in_cost," +
             "planin,goodsAcc,in_acc,in_memo from INTABLE i,INSCRP s,PREINFO p where i.in_scrpno = s.in_scrpno and s.p_no = p.p_no and  1=1 ";
 
 
@@ -57,7 +57,7 @@ namespace psms.SQLServerDAL
             "from inscrp, intable, preinfo " +
             "where inscrp.in_scrpno=intable.in_scrpno and inscrp.p_no=preinfo.p_no  and in_date >= @start and in_date <= @end ";
 
-        private const string SQL_ORDER_BY = " order by intable.in_scrpno,intable.in_date, inscrp.p_no";
+        private const string SQL_ORDER_BY = " order by intable.in_date,intable.in_scrpno, inscrp.p_no";
 
         private const string UPDATE_GOODACC = "update intable set goodsacc = 1 where in_scrpno = @in_scrpno";
 
@@ -172,7 +172,8 @@ namespace psms.SQLServerDAL
                         (SqlHelper.GetStringValue(rdr[0])).Trim(),
                         (SqlHelper.GetStringValue(rdr[1])).Trim(),
                         (SqlHelper.GetStringValue(rdr[2])).Trim(),
-                        (rdr[3] == null || rdr[3] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(3),
+                        //(rdr[3] == null || rdr[3] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(3),
+                        DateTime.Parse((SqlHelper.GetStringValue(rdr[3])).Trim()),
                         (rdr[4] == null || rdr[4] == DBNull.Value) ? 0 : rdr.GetDecimal(4),
                         (SqlHelper.GetStringValue(rdr[5])).Trim(),
                         (rdr[6] == null || rdr[6] == DBNull.Value) ? 0 : rdr.GetInt32(6),
@@ -218,7 +219,8 @@ namespace psms.SQLServerDAL
                         (SqlHelper.GetStringValue(rdr[0])).Trim(),
                         (SqlHelper.GetStringValue(rdr[1])).Trim(),
                         (SqlHelper.GetStringValue(rdr[2])).Trim(),
-                        (rdr[3] == null || rdr[3] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(3),
+                        //(rdr[3] == null || rdr[3] == DBNull.Value) ? new System.DateTime() : rdr.GetDateTime(3),
+                        DateTime.Parse((SqlHelper.GetStringValue(rdr[3])).Trim()),
                         (rdr[4] == null || rdr[4]== DBNull.Value) ? 0 : rdr.GetDecimal(4),
                         (SqlHelper.GetStringValue(rdr[5])).Trim(),
                         (rdr[6] == null || rdr[6] == DBNull.Value) ? 0 : rdr.GetInt32(6),
@@ -347,7 +349,7 @@ namespace psms.SQLServerDAL
             
             InTableParms[0].Value = data.Billno;
             InTableParms[1].Value = data.In_ou;
-            InTableParms[2].Value = data.In_date.ToShortDateString();
+            InTableParms[2].Value = data.In_date.ToString();
             InTableParms[3].Value = data.In_cost;
             InTableParms[4].Value = data.Planin;
             InTableParms[5].Value = data.GoodAcc;
@@ -412,7 +414,7 @@ namespace psms.SQLServerDAL
             InTableParms[0].Value = data.In_scrpno;
             InTableParms[1].Value = data.Billno;
             InTableParms[2].Value = data.In_ou;
-            InTableParms[3].Value = data.In_date.ToShortDateString();
+            InTableParms[3].Value = data.In_date.ToString();
             InTableParms[4].Value = data.In_cost;
             InTableParms[5].Value = data.Planin;
             InTableParms[6].Value = data.GoodAcc;
