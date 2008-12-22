@@ -166,8 +166,15 @@ namespace psms
                 {
                     startTime = this.comboBoxYear.Text.Trim() + "-" + this.comboBoxMonth.Text.Trim() + "-01";
                     int m = Int32.Parse(this.comboBoxMonth.Text.Trim()) + 1;
-                    string mon = m < 10 ? "" + m.ToString() : m.ToString();
-                    endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    if (m == 13)
+                    {
+                        endTime = (Int32.Parse(this.comboBoxYear.Text.Trim()) + 1).ToString() + "-01-01"; 
+                    }
+                    else
+                    {
+                        string mon = m < 10 ? "0" + m.ToString() : m.ToString();
+                        endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    }
                     endTime = DateTime.Parse(endTime).AddDays(-1).ToShortDateString();
                     this.title = this.comboBoxYear.Text.Trim() + "Äê" + this.comboBoxMonth.Text.Trim() + "ÔÂ";
                 }
@@ -194,8 +201,8 @@ namespace psms
                 dt = new BLL.OutTable().GetOutTableDataTableForStatQntSum(startTime, endTime, conditon.ToString());
                 this.dataGridView1.DataSource = dt;
 
-                getScrpNoSql[0] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_scrpno asc";
-                getScrpNoSql[1] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_scrpno desc";
+                getScrpNoSql[0] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_date asc,outtable.out_scrpno asc";
+                getScrpNoSql[1] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_date desc,outtable.out_scrpno desc";
             }
             catch (Exception ex)
             {

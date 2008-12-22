@@ -156,8 +156,16 @@ namespace psms
                 {
                     startTime = this.comboBoxYear.Text.Trim() + "-" + this.comboBoxMonth.Text.Trim() + "-01";
                     int m = Int32.Parse(this.comboBoxMonth.Text.Trim()) + 1;
-                    string mon = m < 10 ? "" + m.ToString() : m.ToString();
-                    endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    if (m == 13)
+                    {
+                        endTime = (Int32.Parse(this.comboBoxYear.Text.Trim()) + 1).ToString() + "-01-01";
+                    }
+                    else
+                    {
+                        string mon = m < 10 ? "0" + m.ToString() : m.ToString();
+                        endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    }
+                    endTime = DateTime.Parse(endTime).AddDays(-1).ToShortDateString();
                     this.title = this.comboBoxYear.Text.Trim() + "Äê¶È" + this.comboBoxMonth.Text.Trim() + "ÔÂ";
                 }
                 else if (this.radioButtonDate.Checked)
