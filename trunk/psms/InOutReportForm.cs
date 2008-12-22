@@ -116,9 +116,15 @@ namespace psms
                 {
                     startTime = this.comboBoxYear.Text.Trim() + "-" + this.comboBoxMonth.Text.Trim() + "-01";
                     int m = Int32.Parse(this.comboBoxMonth.Text.Trim()) + 1;
-                    DateTime.Parse(startTime).AddDays(-1);
-                    string mon = m < 10 ? "" + m.ToString() : m.ToString();
-                    endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    if (m == 13)
+                    {
+                        endTime = (Int32.Parse(this.comboBoxYear.Text.Trim()) + 1).ToString() + "-01-01";
+                    }
+                    else
+                    {
+                        string mon = m < 10 ? "0" + m.ToString() : m.ToString();
+                        endTime = this.comboBoxYear.Text.Trim() + "-" + mon + "-01";
+                    }
                     endTime = DateTime.Parse(endTime).AddDays(-1).ToShortDateString();
                     this.title = this.comboBoxYear.Text.Trim() + "Äê¶È" + this.comboBoxMonth.Text.Trim() + "ÔÂ";
                 }
@@ -151,10 +157,10 @@ namespace psms
                 dt = new BLL.PreInfo().GetDataTablePreInfoForStatInOutSumspStoreqnt1(startTime, endTime, cond);
                 this.dataGridViewInOutReport.DataSource = dt;
 
-                getScrpNoSql[0] = "select top 1 in_scrpno from intable where in_date >= '" + startTime + "' and in_date <='" + endTime + "' order by in_scrpno asc" ;
-                getScrpNoSql[1] = "select top 1 in_scrpno from intable where in_date >= '" + startTime + "' and in_date <='" + endTime + "' order by in_scrpno desc";
-                getScrpNoSql[2] = "select top 1 out_scrpno from outtable where out_date >= '" + startTime + "' and out_date <='" + endTime + "' order by out_scrpno asc";
-                getScrpNoSql[3] = "select top 1 out_scrpno from outtable where out_date >= '" + startTime + "' and out_date <='" + endTime + "' order by out_scrpno desc";
+                getScrpNoSql[0] = "select top 1 in_scrpno from intable where in_date >= '" + startTime + "' and in_date <='" + endTime + "' order by in_date asc,in_scrpno asc";
+                getScrpNoSql[1] = "select top 1 in_scrpno from intable where in_date >= '" + startTime + "' and in_date <='" + endTime + "' order by in_date desc,in_scrpno desc";
+                getScrpNoSql[2] = "select top 1 out_scrpno from outtable where out_date >= '" + startTime + "' and out_date <='" + endTime + "' order by out_date asc,out_scrpno asc";
+                getScrpNoSql[3] = "select top 1 out_scrpno from outtable where out_date >= '" + startTime + "' and out_date <='" + endTime + "' order by out_date desc,out_scrpno desc";
             }
             catch (Exception ex)
             {
