@@ -110,13 +110,13 @@ namespace psms
                     //    MyMessageBox.ShowInfoMessageBox("入库日期的区间选项被选中，请输入完成的入库日期区间条件");
                     //    return;
                     //}
-                    condition.Append(" and in_date >= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append("' ");
-                    condition.Append(" and in_date <= '").Append(this.txtIn_Date2.Value.ToShortDateString()).Append("' ");
+                    condition.Append(" and in_date >= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
+                    condition.Append(" and in_date <= '").Append(this.txtIn_Date2.Value.ToShortDateString()).Append(" 23:59:59.999' ");
                 }
                 else
                 {
-                    condition.Append(" and in_date >= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append("' ");
-                    condition.Append(" and in_date <= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append("' ");
+                    condition.Append(" and in_date >= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
+                    condition.Append(" and in_date <= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 23:59:59.999' ");
                 }
             }
 
