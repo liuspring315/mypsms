@@ -235,6 +235,8 @@ namespace psms
                     }
                     conditon.Append(" intable.in_scrpno = '").Append(((util.ValueObject)this.comboBoxQueryThisIn_scrpno.CheckedItems[comboBoxQueryThisIn_scrpno.CheckedItems.Count - 1]).Value).Append("') ");
                 }
+                startTime = startTime + " 00:00:00.000";
+                endTime = endTime + " 23:59:59.999";
                 dt = new BLL.InTable().GetDataTableInTableForReport(startTime, endTime, conditon.ToString());
                 //util.ReportUtil.setDataForAxlgxgrid(list, this.axlgxgridInTableReport, 1);
                 this.dataGridView1.DataSource = dt;
