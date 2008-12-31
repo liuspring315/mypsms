@@ -11,3 +11,13 @@
 修改psms.SQLServerDAL.InTable 行91
 注意：此次修改后 凭证编号的规则必须是****-***  *必须为数字 比如"2008-001"
 更新至3.0.4
+
+2008年12月31日
+为每个日期范围查询添加了
+SELECT a.OUT_DATE, b.*
+FROM OUTTABLE a INNER JOIN
+      OUTSCRP b ON a.OUT_SCRPNO = b.OUT_SCRPNO
+WHERE (a.OUT_DATE BETWEEN '2008-12-31 00:00:00.000' AND 
+      '2008-12-31' + ' 23:59:59.999')
+ORDER BY a.OUT_DATE
+更新至3.0.7
