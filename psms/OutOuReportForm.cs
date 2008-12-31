@@ -187,7 +187,7 @@ namespace psms
                 }
                 else
                 {
-                    conditon.Append(" and out_date >= '").Append(startTime).Append("' and out_date <= '").Append(endTime).Append("' ");
+                    conditon.Append(" and out_date >= '").Append(startTime).Append(" 00:00:00.000' and out_date <= '").Append(endTime).Append(" 23:59:59.999' ");
                     dt = new BLL.OutTable().GetStatOutOuGroupByOutOuByCon(conditon.ToString());
                     //util.ReportUtil.setDataForAxlgxgridAddCount(list, this.axlgxgridOutOuReport, 1);
                     this.dataGridView2.Visible = false;
