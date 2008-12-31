@@ -192,7 +192,7 @@ namespace psms
                     //IList<IList<string>> list = new BLL.OutTable().GetStatVipOuGroupByOutOuByCon(startTime, endTime, conditon.ToString());
                     //util.ReportUtil.setDataForAxlgxgridAddCount(list, this.axlgxgridVipOuReport, 1);
 
-                    conditon.Append(" and out_date >= '").Append(startTime).Append("' and out_date <= '").Append(endTime).Append("' ");
+                    conditon.Append(" and out_date >= '").Append(startTime).Append(" 00:00:00.000' and out_date <= '").Append(endTime).Append(" 23:59:59.999' ");
                     dt = new BLL.OutTable().GetStatVipOuGroupByOutOuByCon(conditon.ToString());
                     
                     this.dataGridView2.Visible = false;
