@@ -34,7 +34,7 @@ namespace psms.util
                     tmpstr = str.Substring(len - i, 1);
                     rstr = string.Concat(cstr[Int32.Parse(tmpstr)] + wstr[i], rstr);
                 }
-                rstr = "∏∫" + rstr;
+                rstr = "(∏∫)" + rstr;
             }
             rstr = rstr.Replace(" ∞¡„", " ∞");
             rstr = rstr.Replace("¡„ ∞", "¡„");
