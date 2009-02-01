@@ -465,6 +465,7 @@ namespace psms.util
             if (isPageOne)
             {
                 pageCount = (int)(rowCount / (pageRowCount + 3));
+                //pageCount = (int)(rowCount / (pageRowCount) + 75/this.rowGap);
                 if (rowCount % (pageRowCount + 3) > 0)
                     pageCount++;
                 isPageOne = false;
