@@ -439,44 +439,43 @@ namespace psms.util
             if (isPageed && isTitle)
             {
                 this.titleSize = this.titleSize + 75;
-
                 isTitle = false;
             }
             else if (this.setTongji && (pageCount == 0 || pageCount == 1) && isTitle)
             {
                 this.titleSize = this.titleSize + 75;
-
             }
-            
             else
             {
-                if (!isTitle)
+                if (!isTitle && !isPageed)
                     this.titleSize = TSize + 75;
                 else
                     this.titleSize = TSize;
             }
+
+            //第一页标题所占的行数
+            int titleSizeRow = 0;
             if (this.isAutoPageRowCount)
             {
                 pageRowCount = (int)((height - this.topMargin - this.titleSize - 25 - this.headerFont.Height - this.headerHeight - this.buttomMargin) / this.rowGap );
-                //this.isAutoPageRowCount = false;
+                titleSizeRow = 3;
             }
 
+            //开始行号
             int startRow = 0;
+
             if (isPageOne)
             {
-                pageCount = (int)(rowCount / (pageRowCount + 3));
-                //pageCount = (int)(rowCount / (pageRowCount) + 75/this.rowGap);
-                if (rowCount % (pageRowCount + 3) > 0)
+                pageCount = (int)((rowCount + titleSizeRow) / (pageRowCount + titleSizeRow));
+                if ((rowCount + titleSizeRow) % (pageRowCount + titleSizeRow) > 0)
                     pageCount++;
                 isPageOne = false;
                 this.prevPageRowCount = pageRowCount;
-
-                //startRow = 0;
             }
             else
             {
-                pageCount = (int)(rowCount / pageRowCount);
-                if (rowCount % pageRowCount > 0)
+                pageCount = (int)((rowCount + titleSizeRow) / pageRowCount);
+                if ((rowCount + titleSizeRow) % pageRowCount > 0)
                     pageCount++;
 
                 startRow = currentPageIndex * pageRowCount - 3;
@@ -485,16 +484,6 @@ namespace psms.util
 
             int endRow = startRow + this.pageRowCount < rowCount ? startRow + pageRowCount : rowCount;
             int currentPageRowCount = endRow - startRow;
-
-            //if (this.setTongji && pageCount == 1)
-            //{
-
-            //    pageRowCount = (int)((height - this.topMargin - titleSize - 25 - this.headerFont.Height - this.headerHeight - 25 - this.buttomMargin) / this.rowGap);
-            //    pageCount = (int)(rowCount / pageRowCount);
-            //    if (rowCount % pageRowCount > 0)
-            //        pageCount++;
-            //}
-
 
             string sDateTitle = time01 == "" || time02 == "" ? "" : time01 + " — " + time02;
 
@@ -505,13 +494,6 @@ namespace psms.util
             int x = 0;
             int y = topMargin;
             string cellValue = "";
-
-            //int startRow = currentPageIndex * pageRowCount;
-            //int startRow = currentPageIndex * prevPageRowCount;
-            //int endRow = startRow + this.pageRowCount < rowCount ? startRow + pageRowCount : rowCount;
-            //int currentPageRowCount = endRow - startRow;
-
-
 
             if (this.currentPageIndex == 0 || this.isEveryPagePrintTitle)
             {
@@ -586,9 +568,6 @@ namespace psms.util
                                 lastLength += colWidth + colGap;
                             }
                         }
-
-                        //int currentY=y+cellTopMargin;
-
 
                         int Xoffset = 10;
                         int Yoffset = 20;
@@ -716,12 +695,7 @@ namespace psms.util
                 DrawLine(new Point(leftMargin, y), new Point(rightBound, y), e.Graphics);
 
                 currentPageIndex++;
-
-                //if (this.setTongji && currentPageIndex == pageCount)
-                //    this.isTongji = true;
-
-                
-
+        
                 if (this.needPrintPageIndex)
                 {
                     if (pageCount != 1)
@@ -748,7 +722,6 @@ namespace psms.util
                     this.titleSize = int.Parse(ConfigurationManager.AppSettings["titleSize"]); // ="20"/>
 
                 }
-                //iPageNumber+=1;
 
             }
             catch
@@ -857,6 +830,9 @@ namespace psms.util
 
         }
 
+        /// <summary>
+        /// 从第一页开始false，否则为true
+        /// </summary>
         private bool isPageed = false;
     }
 }
