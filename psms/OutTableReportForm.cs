@@ -199,7 +199,7 @@ namespace psms
                 //IList<IList<string>> list = new BLL.OutTable().GetOutTableForStatQntSum(startTime, endTime, conditon.ToString());
                 //util.ReportUtil.setDataForAxlgxgrid(list, this.axlgxgridOutTableReport, 1);
                 startTime = startTime + " 00:00:00.000";
-                endTime = endTime + " 23:59:59.999";
+                endTime = endTime + " 23:59:59.990";
                 dt = new BLL.OutTable().GetOutTableDataTableForStatQntSum(startTime, endTime, conditon.ToString());
                 this.dataGridView1.DataSource = dt;
 

@@ -129,7 +129,7 @@ namespace psms
                     inoutMess = "全部宣传品";
                 }
                 dtInOut = new BLL.PreInfo().GetPreInfoForStatInOutSum(this.dateTimePickerSateInOutTable1.Value.ToShortDateString() + " 00:00:00.000",
-                    this.dateTimePickerSateInOutTable2.Value.ToShortDateString() + " 23:59:59.999", InOutStatcondition.ToString());
+                    this.dateTimePickerSateInOutTable2.Value.ToShortDateString() + " 23:59:59.990", InOutStatcondition.ToString());
                 ////输出到报表控件
                 //util.ReportUtil.setDataForAxlgxgrid(list, this.axlgxgridInOutStat, 1);
                 this.dataGridView3.DataSource = dtInOut;
@@ -406,7 +406,7 @@ namespace psms
             }
 
             VipOutStatcondition.Append(" and out_date >= '").Append(this.dateTimePickerVipOuStat1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
-            VipOutStatcondition.Append(" and out_date <= '").Append(this.dateTimePickerVipOuStat2.Value.AddDays(1).ToShortDateString()).Append(" 23:59:59.999' ");
+            VipOutStatcondition.Append(" and out_date <= '").Append(this.dateTimePickerVipOuStat2.Value.AddDays(1).ToShortDateString()).Append(" 23:59:59.990' ");
             return mess == "" ? "全部宣传品" : mess;
         }
 
@@ -478,7 +478,7 @@ namespace psms
                 if(hashTable != null)
                     hashTable.Clear();
                 scrpStatDt = new BLL.OutTable().GetOutTableForStatQntSum(this.dateTimePickerScrpStat1.Value.ToShortDateString() + " 00:00:00.000",
-                    this.dateTimePickerScrpStat2.Value.ToShortDateString() + " 23:59:59.999");
+                    this.dateTimePickerScrpStat2.Value.ToShortDateString() + " 23:59:59.990");
 
                 ////输出到报表控件
                 //util.ReportUtil.setDataForAxlgxgrid(list, this.axlgxgridScrpStat, 1);
@@ -1058,7 +1058,7 @@ namespace psms
             StringBuilder mess = new StringBuilder("");
             OutStatcondition.Remove(0, OutStatcondition.Length);
             OutStatcondition.Append(" and out_date  >= '").Append(this.dateTimePickerStatOutInfo1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
-            OutStatcondition.Append(" and out_date  <= '").Append(this.dateTimePickerStatOutInfo2.Value.ToShortDateString()).Append(" 23:59:59.999' ");
+            OutStatcondition.Append(" and out_date  <= '").Append(this.dateTimePickerStatOutInfo2.Value.ToShortDateString()).Append(" 23:59:59.990' ");
             mess.Append(this.dateTimePickerStatOutInfo1.Value.ToShortDateString()).Append("至");
             mess.Append(this.dateTimePickerStatOutInfo2.Value.ToShortDateString());
             if (!this.checkBoxBoxStatOutInfoPreType.Checked)

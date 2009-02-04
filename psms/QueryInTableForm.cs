@@ -111,12 +111,12 @@ namespace psms
                     //    return;
                     //}
                     condition.Append(" and in_date >= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
-                    condition.Append(" and in_date <= '").Append(this.txtIn_Date2.Value.ToShortDateString()).Append(" 23:59:59.999' ");
+                    condition.Append(" and in_date <= '").Append(this.txtIn_Date2.Value.ToShortDateString()).Append(" 23:59:59.990' ");
                 }
                 else
                 {
                     condition.Append(" and in_date >= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
-                    condition.Append(" and in_date <= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 23:59:59.999' ");
+                    condition.Append(" and in_date <= '").Append(this.txtIn_Date1.Value.ToShortDateString()).Append(" 23:59:59.990' ");
                 }
             }
 
