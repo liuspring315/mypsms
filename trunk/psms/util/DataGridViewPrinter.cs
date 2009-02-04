@@ -455,11 +455,12 @@ namespace psms.util
 
             //第一页标题所占的行数
             int titleSizeRow = 0;
-            if (this.isAutoPageRowCount)
-            {
+            //必须自动计算
+            //if (this.isAutoPageRowCount)
+            //{
                 pageRowCount = (int)((height - this.topMargin - this.titleSize - 25 - this.headerFont.Height - this.headerHeight - this.buttomMargin) / this.rowGap );
                 titleSizeRow = 3;
-            }
+            //}
 
             //开始行号
             int startRow = 0;

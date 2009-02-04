@@ -124,7 +124,7 @@ namespace psms.SQLServerDAL
             DataTable dt = new DataTable();
             SqlParameter[] parms = GetPreInfoForStatInOutSumParameters();
             parms[0].Value = startTime ;//+ " 00:00:00.000";
-            parms[1].Value = endTime;//+ " 23:59:59.999";
+            parms[1].Value = endTime;//+ " 23:59:59.990";
             //Execute the query against the database
             using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringLocalTransaction))
             {

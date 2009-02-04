@@ -154,7 +154,7 @@ namespace psms
                 //sumDataOut = util.SumData.getSumData(new BLL.OutTable().GetOutTableForSUM(startTime,
                 //    endTime, cond));
                 startTime = startTime + " 00:00:00.000";
-                endTime = endTime + " 23:59:59.999";
+                endTime = endTime + " 23:59:59.990";
                 dt = new BLL.PreInfo().GetDataTablePreInfoForStatInOutSumspStoreqnt1(startTime, endTime, cond);
                 this.dataGridViewInOutReport.DataSource = dt;
 

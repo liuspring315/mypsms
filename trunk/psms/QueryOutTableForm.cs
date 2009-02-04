@@ -103,12 +103,12 @@ namespace psms
                     if (this.checkBoxOut_date.Checked)
                     {
                         condition.Append(" and out_date >= '").Append(this.dateTimePickerOut_date1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
-                        condition.Append(" and out_date <= '").Append(this.dateTimePickerOut_date2.Value.ToShortDateString()).Append(" 23:59:59.999' ");
+                        condition.Append(" and out_date <= '").Append(this.dateTimePickerOut_date2.Value.ToShortDateString()).Append(" 23:59:59.990' ");
                     }
                     else
                     {
                         condition.Append(" and out_date >= '").Append(this.dateTimePickerOut_date1.Value.ToShortDateString()).Append(" 00:00:00.000' ");
-                        condition.Append(" and out_date <= '").Append(this.dateTimePickerOut_date1.Value.ToShortDateString()).Append(" 23:59:59.999' ");
+                        condition.Append(" and out_date <= '").Append(this.dateTimePickerOut_date1.Value.ToShortDateString()).Append(" 23:59:59.990' ");
                     }
                 }
 

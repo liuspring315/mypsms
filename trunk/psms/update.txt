@@ -26,3 +26,15 @@ ORDER BY a.OUT_DATE
 修改导出到word数量为负数报错的问题，因为将数字转换成中文大写未考虑到负数的情况
 修改了util/ConverNumber.cs
 更新至3.0.8
+
+
+2009年2月2日
+修改报表打印，如果恰巧最后一页只有三行时，最后一页不显示的错误，由于第一页的标题占掉了3行未算上
+修改了文件DataGridViewPrinter.cs
+修改日期查询
+类似于exec sp_executesql N'select convert(char(10),intable.in_date,20) as indate, intable.in_scrpno,intable.billno + '' '' as billno, inscrp.p_no, preinfo.p_name, preinfo.unit,preinfo.unit_price,inscrp.qnt, 
+inscrp.in_price from inscrp, intable, preinfo where inscrp.in_scrpno=intable.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= @start and in_date <= @end  order by intable.in_date,intable.in_scrpno, 
+inscrp.p_no',N'@start varchar(50),@end varchar(50)',@start='2008-1-1 00:00:00.000',@end='2008-12-3 23:59:59.999'
+查询结果将包含2008-12-4 00:00:00.000的数据，因为sqlserver将2008-12-3 23:59:59.999舍入成了2008-12-4 00:00:00.000
+帮助文档：ms-help://MS.SQLCC.v9/MS.SQLSVR.v9.zh-CHS/tsqlref9/html/9bd1cc5b-227b-4032-95d6-7581ddcc9924.htm
+更新至3.0.9

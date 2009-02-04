@@ -343,11 +343,6 @@
             "AssemblyAsmDisplayName" = "8:psms.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_00C8DD7DF7D97EBF5532DC0FF1F62B67"
-                    {
-                    "Name" = "8:psms.BLL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:psms.BLL.dll"
             "TargetName" = "8:"
@@ -538,11 +533,6 @@
             "AssemblyAsmDisplayName" = "8:psms.DALFactory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_55535CB0116EA572676AEF094E3A1315"
-                    {
-                    "Name" = "8:psms.DALFactory.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:psms.DALFactory.dll"
             "TargetName" = "8:"
@@ -569,11 +559,6 @@
             "AssemblyAsmDisplayName" = "8:psms.SQLServerDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5D665846E31ABBB8141279051686DD8F"
-                    {
-                    "Name" = "8:psms.SQLServerDAL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:psms.SQLServerDAL.dll"
             "TargetName" = "8:"
@@ -600,11 +585,6 @@
             "AssemblyAsmDisplayName" = "8:psms.DBUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8FFBC07A60EB1F191EDA7BD386FEBACB"
-                    {
-                    "Name" = "8:psms.DBUtility.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:psms.DBUtility.dll"
             "TargetName" = "8:"
@@ -631,11 +611,6 @@
             "AssemblyAsmDisplayName" = "8:psms.IDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_933D0C51DC0144D5C6C28F4B82F4A914"
-                    {
-                    "Name" = "8:psms.IDAL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:psms.IDAL.dll"
             "TargetName" = "8:"
@@ -682,11 +657,6 @@
             "AssemblyAsmDisplayName" = "8:psms.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C8BF6E5B6FB22D883B964BE48E77C21D"
-                    {
-                    "Name" = "8:psms.Model.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:psms.Model.dll"
             "TargetName" = "8:"
@@ -835,14 +805,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:邮品库管理系统"
-        "ProductCode" = "8:{48D9EF4F-713E-4FFC-AA22-60BE41B886D1}"
-        "PackageCode" = "8:{875D6F2C-B27B-418A-895D-B667EB2BDD2E}"
+        "ProductCode" = "8:{C0EBBEEE-AC80-49AF-B8C6-50DB8AFCF63E}"
+        "PackageCode" = "8:{4F598AC7-5151-4E08-B37C-56CAB1180487}"
         "UpgradeCode" = "8:{B51712BE-D6E7-4989-BFAD-97A7BDD053CD}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:3.0.7"
+        "ProductVersion" = "8:3.0.9"
         "Manufacturer" = "8:中科振兴信息技术有限公司"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
