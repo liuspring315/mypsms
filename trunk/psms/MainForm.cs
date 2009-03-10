@@ -305,5 +305,12 @@ namespace psms
             this.Hide();
         }
 
+        private void storeReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StoreReportForm storeReportForm = new StoreReportForm();
+            storeReportForm.Show();
+            this.Hide();
+        }
+
     }
 }
