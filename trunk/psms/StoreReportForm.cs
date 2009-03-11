@@ -57,12 +57,15 @@ namespace psms
                 }
                 else
                 {
-                    cond.Append(" and p_no in (");
-                    for (int x = 0; x < comboBoxSateInOutTableP_no.CheckedItems.Count - 1; x++)
+                    if (comboBoxSateInOutTableP_no.CheckedItems.Count > 0)
                     {
-                        cond.Append("'").Append(((util.ValueObject)this.comboBoxSateInOutTableP_no.CheckedItems[x]).Value).Append("',");
+                        cond.Append(" and p_no in (");
+                        for (int x = 0; x < comboBoxSateInOutTableP_no.CheckedItems.Count - 1; x++)
+                        {
+                            cond.Append("'").Append(((util.ValueObject)this.comboBoxSateInOutTableP_no.CheckedItems[x]).Value).Append("',");
+                        }
+                        cond.Append("'").Append(((util.ValueObject)this.comboBoxSateInOutTableP_no.CheckedItems[comboBoxSateInOutTableP_no.CheckedItems.Count - 1]).Value).Append("') ");
                     }
-                    cond.Append("'").Append(((util.ValueObject)this.comboBoxSateInOutTableP_no.CheckedItems[comboBoxSateInOutTableP_no.CheckedItems.Count - 1]).Value).Append("') ");
                 }
                 this.title = this.comboBoxStatInOutTablePreType.SelectedValue + "统计报表";
                 dt = new BLL.PreInfo().GetDataTableBySql(cond.ToString());
@@ -173,25 +176,30 @@ namespace psms
 
         private void comboBoxSateInOutTableP_no_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void checkBoxSateInOutTableAllPreInfo_Click(object sender, EventArgs e)
+        {
+            setComboBoxChecked(this.comboBoxSateInOutTableP_no, this.checkBoxSateInOutTableAllPreInfo.Checked);
+        }
+
+        private void comboBoxSateInOutTableP_no_SelectedIndexChanged(object sender, EventArgs e)
+        {
             if (this.checkBoxSateInOutTableAllPreInfo.Checked)
             {
-                if (this.comboBoxSateInOutTableP_no.SelectedItems.Count != this.comboBoxSateInOutTableP_no.Items.Count)
+                if (this.comboBoxSateInOutTableP_no.CheckedItems.Count != this.comboBoxSateInOutTableP_no.Items.Count)
                 {
                     this.checkBoxSateInOutTableAllPreInfo.Checked = false;
                 }
             }
             else
             {
-                if (this.comboBoxSateInOutTableP_no.SelectedItems.Count == this.comboBoxSateInOutTableP_no.Items.Count)
+                if (this.comboBoxSateInOutTableP_no.CheckedItems.Count == this.comboBoxSateInOutTableP_no.Items.Count)
                 {
                     this.checkBoxSateInOutTableAllPreInfo.Checked = true;
                 }
             }
-        }
-
-        private void checkBoxSateInOutTableAllPreInfo_Click(object sender, EventArgs e)
-        {
-            setComboBoxChecked(this.comboBoxSateInOutTableP_no, this.checkBoxSateInOutTableAllPreInfo.Checked);
         }
 
 
