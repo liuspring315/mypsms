@@ -1,6 +1,6 @@
 ﻿namespace psms
 {
-    partial class UpdateInTableForm
+    partial class btnOutThis
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateInTableForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(btnOutThis));
             this.btnInTable_NextTable = new System.Windows.Forms.Button();
             this.btnInTable_Cancel = new System.Windows.Forms.Button();
             this.btnInTable_SaveAndExit = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.listBoxPreName = new System.Windows.Forms.ListBox();
             this.dataGridViewIntable_PreInfoList = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumnIN_SCRPNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,8 +62,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.groupBoxUpdateIntable = new System.Windows.Forms.GroupBox();
+            this.chk_word_in = new System.Windows.Forms.CheckBox();
             this.buttonPrintIn = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
             this.labGoodAcc = new System.Windows.Forms.Label();
             this.btnGoodAcc = new System.Windows.Forms.Button();
             this.labAcc = new System.Windows.Forms.Label();
@@ -85,10 +86,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnDel = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnQuery = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.chk_word_in = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIntable_PreInfoList)).BeginInit();
             this.groupBoxUpdateIntable.SuspendLayout();
@@ -97,7 +98,7 @@
             // 
             // btnInTable_NextTable
             // 
-            this.btnInTable_NextTable.Location = new System.Drawing.Point(674, 76);
+            this.btnInTable_NextTable.Location = new System.Drawing.Point(683, 62);
             this.btnInTable_NextTable.Name = "btnInTable_NextTable";
             this.btnInTable_NextTable.Size = new System.Drawing.Size(109, 22);
             this.btnInTable_NextTable.TabIndex = 30;
@@ -107,7 +108,7 @@
             // 
             // btnInTable_Cancel
             // 
-            this.btnInTable_Cancel.Location = new System.Drawing.Point(674, 46);
+            this.btnInTable_Cancel.Location = new System.Drawing.Point(683, 32);
             this.btnInTable_Cancel.Name = "btnInTable_Cancel";
             this.btnInTable_Cancel.Size = new System.Drawing.Size(109, 22);
             this.btnInTable_Cancel.TabIndex = 29;
@@ -117,7 +118,7 @@
             // 
             // btnInTable_SaveAndExit
             // 
-            this.btnInTable_SaveAndExit.Location = new System.Drawing.Point(674, 17);
+            this.btnInTable_SaveAndExit.Location = new System.Drawing.Point(683, 3);
             this.btnInTable_SaveAndExit.Name = "btnInTable_SaveAndExit";
             this.btnInTable_SaveAndExit.Size = new System.Drawing.Size(109, 22);
             this.btnInTable_SaveAndExit.TabIndex = 28;
@@ -144,12 +145,23 @@
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Location = new System.Drawing.Point(5, 172);
+            this.groupBox4.Location = new System.Drawing.Point(5, 169);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(799, 302);
+            this.groupBox4.Size = new System.Drawing.Size(799, 305);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "宣传品信息";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(678, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 22);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "退      库";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBoxPreName
             // 
@@ -270,7 +282,7 @@
             // 
             // btnInTable_addPreInfo
             // 
-            this.btnInTable_addPreInfo.Location = new System.Drawing.Point(686, 40);
+            this.btnInTable_addPreInfo.Location = new System.Drawing.Point(686, 57);
             this.btnInTable_addPreInfo.Name = "btnInTable_addPreInfo";
             this.btnInTable_addPreInfo.Size = new System.Drawing.Size(92, 52);
             this.btnInTable_addPreInfo.TabIndex = 16;
@@ -340,7 +352,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(214, 28);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 12);
+            this.label17.Size = new System.Drawing.Size(77, 12);
             this.label17.TabIndex = 6;
             this.label17.Text = "宣传品名称：";
             // 
@@ -385,7 +397,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(17, 29);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(65, 12);
+            this.label22.Size = new System.Drawing.Size(77, 12);
             this.label22.TabIndex = 1;
             this.label22.Text = "宣传品编号：";
             // 
@@ -423,6 +435,16 @@
             this.groupBoxUpdateIntable.Text = "凭证信息   当前第 条，共有记录数";
             this.groupBoxUpdateIntable.Enter += new System.EventHandler(this.groupBoxUpdateIntable_Enter);
             // 
+            // chk_word_in
+            // 
+            this.chk_word_in.AutoSize = true;
+            this.chk_word_in.Location = new System.Drawing.Point(583, 124);
+            this.chk_word_in.Name = "chk_word_in";
+            this.chk_word_in.Size = new System.Drawing.Size(48, 16);
+            this.chk_word_in.TabIndex = 36;
+            this.chk_word_in.Text = "横版";
+            this.chk_word_in.UseVisualStyleBackColor = true;
+            // 
             // buttonPrintIn
             // 
             this.buttonPrintIn.Location = new System.Drawing.Point(461, 117);
@@ -432,16 +454,6 @@
             this.buttonPrintIn.Text = "打印此入库单";
             this.buttonPrintIn.UseVisualStyleBackColor = true;
             this.buttonPrintIn.Click += new System.EventHandler(this.buttonPrintIn_Click);
-            // 
-            // btnDel
-            // 
-            this.btnDel.Location = new System.Drawing.Point(705, 140);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(78, 23);
-            this.btnDel.TabIndex = 32;
-            this.btnDel.Text = "删除此凭证";
-            this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // labGoodAcc
             // 
@@ -640,13 +652,23 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "凭证编号：";
             // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(683, 120);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(109, 23);
+            this.btnDel.TabIndex = 32;
+            this.btnDel.Text = "删除此凭证";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(674, 106);
+            this.btnQuery.Location = new System.Drawing.Point(683, 92);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(109, 22);
             this.btnQuery.TabIndex = 31;
@@ -654,32 +676,22 @@
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(669, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 22);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "退      库";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(683, 149);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 23);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "出库此凭证";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // chk_word_in
-            // 
-            this.chk_word_in.AutoSize = true;
-            this.chk_word_in.Location = new System.Drawing.Point(583, 124);
-            this.chk_word_in.Name = "chk_word_in";
-            this.chk_word_in.Size = new System.Drawing.Size(48, 16);
-            this.chk_word_in.TabIndex = 36;
-            this.chk_word_in.Text = "横版";
-            this.chk_word_in.UseVisualStyleBackColor = true;
-            // 
-            // UpdateInTableForm
+            // btnOutThis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 486);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.btnInTable_NextTable);
             this.Controls.Add(this.btnDel);
@@ -689,7 +701,7 @@
             this.Controls.Add(this.groupBoxUpdateIntable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "UpdateInTableForm";
+            this.Name = "btnOutThis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "入库凭证修改";
             this.Load += new System.EventHandler(this.UpdateInTableForm_Load);
@@ -765,5 +777,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonPrintIn;
         private System.Windows.Forms.CheckBox chk_word_in;
+        private System.Windows.Forms.Button button2;
     }
 }

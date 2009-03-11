@@ -253,7 +253,7 @@ namespace psms
                     InTableInfo data = getInTableInfoByInScrpno(in_scrpno);
                     if (data != null)
                     {
-                        UpdateInTableForm updateForm = new UpdateInTableForm(data);
+                        btnOutThis updateForm = new btnOutThis(data);
                         updateForm.Show();
                         this.Hide();
                     }

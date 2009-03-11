@@ -115,7 +115,7 @@ namespace psms
 
         private void inTableUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateInTableForm updateIntableForm = new UpdateInTableForm();
+            btnOutThis updateIntableForm = new btnOutThis();
             updateIntableForm.Show();
             this.Hide();
         }

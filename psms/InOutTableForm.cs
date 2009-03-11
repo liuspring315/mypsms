@@ -31,6 +31,16 @@ namespace psms
             InitializeComponent();
         }
 
+        private System.ComponentModel.BindingList<InScrpInfo> newInScrpList = null;
+        /// <summary>
+        /// 自动由入库凭证转为出库 调用此构造函数
+        /// </summary>
+        public InOutTableForm(System.ComponentModel.BindingList<InScrpInfo> list)
+        {
+            InitializeComponent();
+            this.newInScrpList = list;
+        }
+
         //tabControl标签属性
         public TabControl InOutTabletabControl
         {
@@ -43,6 +53,22 @@ namespace psms
             {
                 //初始化数据
                 DataLoadBySelectTab();
+                //自动由入库凭证转为出库
+                if (this.newInScrpList != null)
+                {
+                    btnOutTable_AddPreInfo_Click(sender, e);
+                    for (int i = 0; i < newInScrpList.Count; i++)
+                    {
+                        InScrpInfo data = newInScrpList[i];
+                        this.txtOutTable_P_name.Text = data.P_name;
+                        this.txtOutTable_unit.Text = data.Unit;
+                        this.txtOutTable_Unit_price.Text = data.Unit_price.ToString();
+                        this.txtOutTable_Qnt.Text = data.Qnt.ToString();
+                        this.txtOutTable_Cost_price.Text = data.Cost_price.ToString();
+                        this.txtOutTable_P_no.Text = data.P_no;
+                        btnOutTable_AddPreInfo_Click(sender, e);
+                    }
+                }
             }
             catch (Exception ex)
             {
