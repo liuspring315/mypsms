@@ -68,6 +68,7 @@
             this.comboBoxSateInOutTableP_no.Name = "comboBoxSateInOutTableP_no";
             this.comboBoxSateInOutTableP_no.Size = new System.Drawing.Size(498, 148);
             this.comboBoxSateInOutTableP_no.TabIndex = 14;
+            this.comboBoxSateInOutTableP_no.SelectedIndexChanged += new System.EventHandler(this.comboBoxSateInOutTableP_no_SelectedIndexChanged);
             this.comboBoxSateInOutTableP_no.Click += new System.EventHandler(this.comboBoxSateInOutTableP_no_Click);
             // 
             // checkBoxSateInOutTableAllPreInfo
