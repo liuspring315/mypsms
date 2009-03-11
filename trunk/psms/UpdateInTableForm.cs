@@ -11,7 +11,7 @@ using psms.Model;
 
 namespace psms
 {
-    public partial class UpdateInTableForm : Form
+    public partial class btnOutThis : Form
     {
 
         #region 私有字段
@@ -30,12 +30,12 @@ namespace psms
         //转到查询窗口标识
         private bool showMain = true;
         
-        public UpdateInTableForm()
+        public btnOutThis()
         {
             InitializeComponent();
         }
 
-        public UpdateInTableForm(InTableInfo data)
+        public btnOutThis(InTableInfo data)
         {
             InitializeComponent();
             this.showMain = false;
@@ -911,6 +911,24 @@ namespace psms
         private void groupBoxUpdateIntable_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 将当前入库凭证全部出库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewIntable_PreInfoList.RowCount <= 0 || this.newInScrpList == null || this.newInScrpList.Count == 0)
+            {
+                MyMessageBox.ShowInfoMessageBox("入库凭证中不能没有邮品");
+                return;
+            }
+            InOutTableForm inOutTableForm = new InOutTableForm(this.newInScrpList);
+            inOutTableForm.InOutTabletabControl.SelectedTab = inOutTableForm.InOutTabletabControl.TabPages[1];
+            inOutTableForm.Show();
+            this.Close();
         }
 
     }

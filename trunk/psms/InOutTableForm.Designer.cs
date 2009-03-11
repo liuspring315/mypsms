@@ -154,10 +154,10 @@
             this.OutTabletabPage.Controls.Add(this.btnOutTable_SaveAndExit);
             this.OutTabletabPage.Controls.Add(this.groupBox1);
             this.OutTabletabPage.Controls.Add(this.groupBox2);
-            this.OutTabletabPage.Location = new System.Drawing.Point(4, 21);
+            this.OutTabletabPage.Location = new System.Drawing.Point(4, 22);
             this.OutTabletabPage.Name = "OutTabletabPage";
             this.OutTabletabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.OutTabletabPage.Size = new System.Drawing.Size(794, 563);
+            this.OutTabletabPage.Size = new System.Drawing.Size(794, 562);
             this.OutTabletabPage.TabIndex = 0;
             this.OutTabletabPage.Text = "出库凭证录入";
             this.OutTabletabPage.UseVisualStyleBackColor = true;
@@ -635,10 +635,10 @@
             this.InTabletabPage.Controls.Add(this.btnInTable_SaveAndExit);
             this.InTabletabPage.Controls.Add(this.groupBox4);
             this.InTabletabPage.Controls.Add(this.groupBox3);
-            this.InTabletabPage.Location = new System.Drawing.Point(4, 21);
+            this.InTabletabPage.Location = new System.Drawing.Point(4, 22);
             this.InTabletabPage.Name = "InTabletabPage";
             this.InTabletabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.InTabletabPage.Size = new System.Drawing.Size(794, 563);
+            this.InTabletabPage.Size = new System.Drawing.Size(794, 562);
             this.InTabletabPage.TabIndex = 1;
             this.InTabletabPage.Text = "入库凭证录入";
             this.InTabletabPage.UseVisualStyleBackColor = true;
@@ -1143,6 +1143,7 @@
             this.Name = "InOutTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出入库凭证录入";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.InOutTableForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InOutTableForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
