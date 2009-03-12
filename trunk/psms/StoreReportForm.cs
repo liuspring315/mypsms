@@ -51,9 +51,14 @@ namespace psms
 
 
                 StringBuilder cond = new StringBuilder("SELECT p_no,p_name,unit_price,cost_price,acc_qnt,acc_qnt*unit_price as e_price FROM PREINFO p where 1=1 ");
+                if (!this.checkBoxIncludeQnt0.Checked)
+                {
+                    cond.Append(" and acc_qnt <> 0");
+                }
                 if (this.checkBoxSateInOutTableAllPreInfo.Checked)
                 {
                     cond.Append(" and preType = '").Append(this.comboBoxStatInOutTablePreType.SelectedValue).Append("'");
+                    this.title = this.comboBoxStatInOutTablePreType.SelectedValue + "统计报表";
                 }
                 else
                 {
@@ -65,9 +70,14 @@ namespace psms
                             cond.Append("'").Append(((util.ValueObject)this.comboBoxSateInOutTableP_no.CheckedItems[x]).Value).Append("',");
                         }
                         cond.Append("'").Append(((util.ValueObject)this.comboBoxSateInOutTableP_no.CheckedItems[comboBoxSateInOutTableP_no.CheckedItems.Count - 1]).Value).Append("') ");
+                        this.title = this.comboBoxStatInOutTablePreType.SelectedValue + "统计报表";
+                    }
+                    else
+                    {
+                        this.title = "所有系列统计报表";
                     }
                 }
-                this.title = this.comboBoxStatInOutTablePreType.SelectedValue + "统计报表";
+                
                 dt = new BLL.PreInfo().GetDataTableBySql(cond.ToString());
                 this.dataGridViewInOutReport.DataSource = dt;
             }
