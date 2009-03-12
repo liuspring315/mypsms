@@ -43,12 +43,14 @@
             this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acc_qnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.e_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxIncludeQnt0 = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInOutReport)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBoxIncludeQnt0);
             this.groupBox2.Controls.Add(this.comboBoxSateInOutTableP_no);
             this.groupBox2.Controls.Add(this.checkBoxSateInOutTableAllPreInfo);
             this.groupBox2.Controls.Add(this.comboBoxStatInOutTablePreType);
@@ -199,6 +201,18 @@
             this.e_price.ReadOnly = true;
             this.e_price.Width = 110;
             // 
+            // checkBoxIncludeQnt0
+            // 
+            this.checkBoxIncludeQnt0.AutoSize = true;
+            this.checkBoxIncludeQnt0.Checked = true;
+            this.checkBoxIncludeQnt0.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxIncludeQnt0.Location = new System.Drawing.Point(350, 32);
+            this.checkBoxIncludeQnt0.Name = "checkBoxIncludeQnt0";
+            this.checkBoxIncludeQnt0.Size = new System.Drawing.Size(132, 16);
+            this.checkBoxIncludeQnt0.TabIndex = 15;
+            this.checkBoxIncludeQnt0.Text = "包含库存为零的邮品";
+            this.checkBoxIncludeQnt0.UseVisualStyleBackColor = true;
+            // 
             // StoreReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -239,5 +253,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn acc_qnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn e_price;
+        private System.Windows.Forms.CheckBox checkBoxIncludeQnt0;
     }
 }
