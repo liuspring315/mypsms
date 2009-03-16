@@ -928,6 +928,7 @@ namespace psms
             InOutTableForm inOutTableForm = new InOutTableForm(this.newInScrpList);
             inOutTableForm.InOutTabletabControl.SelectedTab = inOutTableForm.InOutTabletabControl.TabPages[1];
             inOutTableForm.Show();
+            this.showMain = false;
             this.Close();
         }
 
