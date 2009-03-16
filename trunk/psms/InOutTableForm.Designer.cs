@@ -1143,7 +1143,6 @@
             this.Name = "InOutTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出入库凭证录入";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.InOutTableForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InOutTableForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
