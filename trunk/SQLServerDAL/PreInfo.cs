@@ -14,9 +14,10 @@ namespace psms.SQLServerDAL
 
         //得到所有礼品信息sql
         private const string SQL_SELECT_PREINFO_ALL = "SELECT id,P_NO, p.pretype, p_NAME, UNIT, UNIT_PRICE, COST_PRICE, ACC_QNT FROM PREINFO p ORDER BY P_NO ";
+        private const string SQL_SELECT_PREINFO_ALL_BY_CONDITION = "SELECT id,P_NO, p.pretype, p_NAME, UNIT, UNIT_PRICE, COST_PRICE, ACC_QNT FROM PREINFO p ";
 
         //得到所有礼品信息sql
-        private const string SQL_SELECT_PREINFO_BY_CONDITION = "SELECT id,P_NO, t.typename, p_NAME, UNIT, UNIT_PRICE, COST_PRICE, ACC_QNT FROM PREINFO p join pretype t on p.pretype = t.typename ";
+        private const string SQL_SELECT_PREINFO_BY_CONDITION = "SELECT id,P_NO, t.typename, p_NAME, UNIT, UNIT_PRICE, COST_PRICE, ACC_QNT,pretype FROM PREINFO p join pretype t on p.pretype = t.typename ";
             
 
         //按礼品编号查询礼品信息sql
@@ -224,6 +225,23 @@ namespace psms.SQLServerDAL
 
             //Execute the query against the database
             using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text,SQL_SELECT_PREINFO_ALL))
+            {
+                // Scroll through the results
+                while (rdr.Read())
+                {
+                    PreInfoData preInfoData = getPreInfoByDataReader(rdr);
+                    //Add each item to the arraylist
+                    allPreInfo.Add(preInfoData);
+                }
+            }
+            return allPreInfo;
+        }
+        public IList<PreInfoData> GetAllPreInfoByCondition(string condition)
+        {
+            IList<PreInfoData> allPreInfo = new List<PreInfoData>();
+
+            //Execute the query against the database
+            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionStringLocalTransaction, CommandType.Text, SQL_SELECT_PREINFO_ALL_BY_CONDITION + condition + " ORDER BY P_NO "))
             {
                 // Scroll through the results
                 while (rdr.Read())
