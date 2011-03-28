@@ -25,7 +25,7 @@ namespace psms.util
             {
                 comboBoxYear.Items.Add(i.ToString());
             }
-            comboBoxYear.SelectedIndex = 0;
+            comboBoxYear.SelectedItem = comboBoxYear.Items[comboBoxYear.FindString(DateTime.Now.Year.ToString())];
         }
 
         public static void setMonthList(ComboBox comboBoxMonth)
@@ -41,7 +41,8 @@ namespace psms.util
                     comboBoxMonth.Items.Add(i.ToString());
                 }
             }
-            comboBoxMonth.SelectedIndex = 0;
+            int nowMonth = DateTime.Now.Month;
+            comboBoxMonth.SelectedItem = comboBoxMonth.Items[comboBoxMonth.FindString(nowMonth<10?"0"+nowMonth.ToString():nowMonth.ToString())];
         }
 
 
