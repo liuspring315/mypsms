@@ -32,6 +32,11 @@ namespace psms.BLL
             return dal.GetAllPreInfo();
         }
 
+        public IList<PreInfoData> GetAllPreInfoByCondition(string condition)
+        {
+            return dal.GetAllPreInfoByCondition(condition);
+        }
+
         /// <summary>
         /// 
         /// </summary>
