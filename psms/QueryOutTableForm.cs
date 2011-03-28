@@ -185,6 +185,60 @@ namespace psms
                         condition.Append(" and out_acc = ").Append(((util.ValueObject)this.comboBoxOut_acc.SelectedItem).Value.ToString()).Append(" ");
                     }
                 }
+                //成本价
+                if (this.txtCostPrice1.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtCostPrice1.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("成本价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.cost_price >= ").Append(this.txtCostPrice1.Text.Trim());
+                }
+                if (this.txtCostPrice2.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtCostPrice2.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("成本价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.cost_price <= ").Append(this.txtCostPrice2.Text.Trim());
+                }
+                //销售价
+                if (this.txtUnitPrice1.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtUnitPrice1.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("销售价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.unit_price >= ").Append(this.txtUnitPrice1.Text.Trim());
+                }
+                if (this.txtUnitPrice2.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtUnitPrice2.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("销售价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.unit_price <= ").Append(this.txtUnitPrice2.Text.Trim());
+                }
 
 
                 //查询

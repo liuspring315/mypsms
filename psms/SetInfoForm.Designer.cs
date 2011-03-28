@@ -33,6 +33,14 @@
             this.setInfotabControl = new System.Windows.Forms.TabControl();
             this.PrcInfotabPage = new System.Windows.Forms.TabPage();
             this.groupBoxPreInfo = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtUnitPrice2 = new System.Windows.Forms.TextBox();
+            this.txtUnitPrice1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtCostPrice2 = new System.Windows.Forms.TextBox();
+            this.txtCostPrice1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.comboUnit = new System.Windows.Forms.ComboBox();
             this.cobPreType = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -59,14 +67,6 @@
             this.txtPreInfoQueryPNo = new System.Windows.Forms.TextBox();
             this.btnPreInfoQuery = new System.Windows.Forms.Button();
             this.PreDataGridView = new System.Windows.Forms.DataGridView();
-            this.p_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pretype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acc_qnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrcTypetabPage = new System.Windows.Forms.TabPage();
             this.groupBoxPerType = new System.Windows.Forms.GroupBox();
             this.btnPreTypeDel = new System.Windows.Forms.Button();
@@ -157,6 +157,16 @@
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SetPreInfoerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.p_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pretype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acc_qnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxQueryPreType = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.setInfotabControl.SuspendLayout();
             this.PrcInfotabPage.SuspendLayout();
             this.groupBoxPreInfo.SuspendLayout();
@@ -210,6 +220,16 @@
             // 
             // groupBoxPreInfo
             // 
+            this.groupBoxPreInfo.Controls.Add(this.comboBoxQueryPreType);
+            this.groupBoxPreInfo.Controls.Add(this.label22);
+            this.groupBoxPreInfo.Controls.Add(this.label18);
+            this.groupBoxPreInfo.Controls.Add(this.txtUnitPrice2);
+            this.groupBoxPreInfo.Controls.Add(this.txtUnitPrice1);
+            this.groupBoxPreInfo.Controls.Add(this.label19);
+            this.groupBoxPreInfo.Controls.Add(this.label20);
+            this.groupBoxPreInfo.Controls.Add(this.txtCostPrice2);
+            this.groupBoxPreInfo.Controls.Add(this.txtCostPrice1);
+            this.groupBoxPreInfo.Controls.Add(this.label21);
             this.groupBoxPreInfo.Controls.Add(this.comboUnit);
             this.groupBoxPreInfo.Controls.Add(this.cobPreType);
             this.groupBoxPreInfo.Controls.Add(this.label14);
@@ -241,6 +261,70 @@
             this.groupBoxPreInfo.TabIndex = 1;
             this.groupBoxPreInfo.TabStop = false;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(135, 51);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(17, 12);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "至";
+            // 
+            // txtUnitPrice2
+            // 
+            this.txtUnitPrice2.Location = new System.Drawing.Point(159, 46);
+            this.txtUnitPrice2.Name = "txtUnitPrice2";
+            this.txtUnitPrice2.Size = new System.Drawing.Size(74, 21);
+            this.txtUnitPrice2.TabIndex = 46;
+            // 
+            // txtUnitPrice1
+            // 
+            this.txtUnitPrice1.Location = new System.Drawing.Point(54, 46);
+            this.txtUnitPrice1.Name = "txtUnitPrice1";
+            this.txtUnitPrice1.Size = new System.Drawing.Size(77, 21);
+            this.txtUnitPrice1.TabIndex = 45;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 12);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "销售价";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(135, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(17, 12);
+            this.label20.TabIndex = 43;
+            this.label20.Text = "至";
+            // 
+            // txtCostPrice2
+            // 
+            this.txtCostPrice2.Location = new System.Drawing.Point(159, 20);
+            this.txtCostPrice2.Name = "txtCostPrice2";
+            this.txtCostPrice2.Size = new System.Drawing.Size(74, 21);
+            this.txtCostPrice2.TabIndex = 42;
+            // 
+            // txtCostPrice1
+            // 
+            this.txtCostPrice1.Location = new System.Drawing.Point(54, 20);
+            this.txtCostPrice1.Name = "txtCostPrice1";
+            this.txtCostPrice1.Size = new System.Drawing.Size(77, 21);
+            this.txtCostPrice1.TabIndex = 41;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(7, 23);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "成本价";
+            // 
             // comboUnit
             // 
             this.comboUnit.Enabled = false;
@@ -251,7 +335,7 @@
             "张",
             "本",
             "个"});
-            this.comboUnit.Location = new System.Drawing.Point(84, 221);
+            this.comboUnit.Location = new System.Drawing.Point(92, 291);
             this.comboUnit.Name = "comboUnit";
             this.comboUnit.Size = new System.Drawing.Size(101, 20);
             this.comboUnit.TabIndex = 26;
@@ -261,7 +345,7 @@
             // 
             this.cobPreType.Enabled = false;
             this.cobPreType.FormattingEnabled = true;
-            this.cobPreType.Location = new System.Drawing.Point(82, 184);
+            this.cobPreType.Location = new System.Drawing.Point(90, 260);
             this.cobPreType.Name = "cobPreType";
             this.cobPreType.Size = new System.Drawing.Size(103, 20);
             this.cobPreType.TabIndex = 25;
@@ -269,7 +353,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 192);
+            this.label14.Location = new System.Drawing.Point(19, 265);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 24;
@@ -277,7 +361,7 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(194, 401);
+            this.btnDel.Location = new System.Drawing.Point(194, 450);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(39, 23);
             this.btnDel.TabIndex = 22;
@@ -287,7 +371,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(156, 401);
+            this.btnAdd.Location = new System.Drawing.Point(156, 450);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(39, 23);
             this.btnAdd.TabIndex = 21;
@@ -297,7 +381,7 @@
             // 
             // btnLast
             // 
-            this.btnLast.Location = new System.Drawing.Point(118, 401);
+            this.btnLast.Location = new System.Drawing.Point(118, 450);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(39, 23);
             this.btnLast.TabIndex = 20;
@@ -307,7 +391,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(80, 401);
+            this.btnNext.Location = new System.Drawing.Point(80, 450);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(39, 23);
             this.btnNext.TabIndex = 19;
@@ -317,7 +401,7 @@
             // 
             // btnPrv
             // 
-            this.btnPrv.Location = new System.Drawing.Point(42, 401);
+            this.btnPrv.Location = new System.Drawing.Point(42, 450);
             this.btnPrv.Name = "btnPrv";
             this.btnPrv.Size = new System.Drawing.Size(39, 23);
             this.btnPrv.TabIndex = 18;
@@ -327,7 +411,7 @@
             // 
             // btnOne
             // 
-            this.btnOne.Location = new System.Drawing.Point(4, 401);
+            this.btnOne.Location = new System.Drawing.Point(4, 450);
             this.btnOne.Name = "btnOne";
             this.btnOne.Size = new System.Drawing.Size(39, 23);
             this.btnOne.TabIndex = 17;
@@ -338,7 +422,7 @@
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(156, 372);
+            this.btnCancel.Location = new System.Drawing.Point(156, 421);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 16;
@@ -349,7 +433,7 @@
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(81, 372);
+            this.btnSave.Location = new System.Drawing.Point(81, 421);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 15;
@@ -360,7 +444,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(6, 372);
+            this.btnUpdate.Location = new System.Drawing.Point(6, 421);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 14;
@@ -371,7 +455,7 @@
             // txtAcc_qnt
             // 
             this.txtAcc_qnt.Enabled = false;
-            this.txtAcc_qnt.Location = new System.Drawing.Point(85, 330);
+            this.txtAcc_qnt.Location = new System.Drawing.Point(96, 388);
             this.txtAcc_qnt.Name = "txtAcc_qnt";
             this.txtAcc_qnt.Size = new System.Drawing.Size(100, 21);
             this.txtAcc_qnt.TabIndex = 13;
@@ -380,7 +464,7 @@
             // txtCost_price
             // 
             this.txtCost_price.Enabled = false;
-            this.txtCost_price.Location = new System.Drawing.Point(84, 295);
+            this.txtCost_price.Location = new System.Drawing.Point(95, 356);
             this.txtCost_price.Name = "txtCost_price";
             this.txtCost_price.Size = new System.Drawing.Size(100, 21);
             this.txtCost_price.TabIndex = 12;
@@ -389,7 +473,7 @@
             // txtUnit_price
             // 
             this.txtUnit_price.Enabled = false;
-            this.txtUnit_price.Location = new System.Drawing.Point(84, 257);
+            this.txtUnit_price.Location = new System.Drawing.Point(93, 322);
             this.txtUnit_price.Name = "txtUnit_price";
             this.txtUnit_price.Size = new System.Drawing.Size(100, 21);
             this.txtUnit_price.TabIndex = 11;
@@ -397,7 +481,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 339);
+            this.label6.Location = new System.Drawing.Point(33, 395);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 10;
@@ -406,7 +490,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 304);
+            this.label5.Location = new System.Drawing.Point(35, 361);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 9;
@@ -415,7 +499,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 266);
+            this.label4.Location = new System.Drawing.Point(33, 328);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 8;
@@ -424,7 +508,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 229);
+            this.label3.Location = new System.Drawing.Point(32, 297);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 6;
@@ -433,7 +517,7 @@
             // txtP_name
             // 
             this.txtP_name.Enabled = false;
-            this.txtP_name.Location = new System.Drawing.Point(24, 146);
+            this.txtP_name.Location = new System.Drawing.Point(24, 225);
             this.txtP_name.Name = "txtP_name";
             this.txtP_name.Size = new System.Drawing.Size(207, 21);
             this.txtP_name.TabIndex = 5;
@@ -441,7 +525,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 121);
+            this.label2.Location = new System.Drawing.Point(22, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 4;
@@ -450,7 +534,7 @@
             // txtP_no
             // 
             this.txtP_no.Enabled = false;
-            this.txtP_no.Location = new System.Drawing.Point(22, 82);
+            this.txtP_no.Location = new System.Drawing.Point(22, 173);
             this.txtP_no.Name = "txtP_no";
             this.txtP_no.Size = new System.Drawing.Size(209, 21);
             this.txtP_no.TabIndex = 3;
@@ -459,7 +543,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 57);
+            this.label1.Location = new System.Drawing.Point(20, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 2;
@@ -467,7 +551,7 @@
             // 
             // txtPreInfoQueryPNo
             // 
-            this.txtPreInfoQueryPNo.Location = new System.Drawing.Point(22, 19);
+            this.txtPreInfoQueryPNo.Location = new System.Drawing.Point(25, 107);
             this.txtPreInfoQueryPNo.Name = "txtPreInfoQueryPNo";
             this.txtPreInfoQueryPNo.Size = new System.Drawing.Size(159, 21);
             this.txtPreInfoQueryPNo.TabIndex = 1;
@@ -476,7 +560,7 @@
             // 
             // btnPreInfoQuery
             // 
-            this.btnPreInfoQuery.Location = new System.Drawing.Point(187, 17);
+            this.btnPreInfoQuery.Location = new System.Drawing.Point(190, 105);
             this.btnPreInfoQuery.Name = "btnPreInfoQuery";
             this.btnPreInfoQuery.Size = new System.Drawing.Size(44, 23);
             this.btnPreInfoQuery.TabIndex = 0;
@@ -512,88 +596,6 @@
             this.PreDataGridView.Size = new System.Drawing.Size(486, 472);
             this.PreDataGridView.TabIndex = 0;
             this.PreDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PreDataGridView_CellClick);
-            // 
-            // p_no
-            // 
-            this.p_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.p_no.DataPropertyName = "p_no";
-            this.p_no.FillWeight = 15F;
-            this.p_no.HeaderText = "宣传品编号";
-            this.p_no.Name = "p_no";
-            this.p_no.ReadOnly = true;
-            this.p_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.p_no.Width = 75;
-            // 
-            // pretype
-            // 
-            this.pretype.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.pretype.DataPropertyName = "pretype";
-            this.pretype.FillWeight = 15F;
-            this.pretype.HeaderText = "宣传品系列";
-            this.pretype.Name = "pretype";
-            this.pretype.ReadOnly = true;
-            this.pretype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pretype.Width = 75;
-            // 
-            // p_name
-            // 
-            this.p_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.p_name.DataPropertyName = "p_name";
-            this.p_name.FillWeight = 8.032752F;
-            this.p_name.HeaderText = "宣传品名称";
-            this.p_name.MinimumWidth = 100;
-            this.p_name.Name = "p_name";
-            this.p_name.ReadOnly = true;
-            this.p_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // unit
-            // 
-            this.unit.DataPropertyName = "unit";
-            this.unit.FillWeight = 18.76229F;
-            this.unit.HeaderText = "单位";
-            this.unit.MinimumWidth = 50;
-            this.unit.Name = "unit";
-            this.unit.ReadOnly = true;
-            this.unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // unit_price
-            // 
-            this.unit_price.DataPropertyName = "unit_price";
-            this.unit_price.FillWeight = 43.08511F;
-            this.unit_price.HeaderText = "销售价";
-            this.unit_price.MinimumWidth = 50;
-            this.unit_price.Name = "unit_price";
-            this.unit_price.ReadOnly = true;
-            this.unit_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // cost_price
-            // 
-            this.cost_price.DataPropertyName = "cost_price";
-            this.cost_price.FillWeight = 1.579661F;
-            this.cost_price.HeaderText = "成本价";
-            this.cost_price.MinimumWidth = 50;
-            this.cost_price.Name = "cost_price";
-            this.cost_price.ReadOnly = true;
-            this.cost_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // acc_qnt
-            // 
-            this.acc_qnt.DataPropertyName = "acc_qnt";
-            this.acc_qnt.FillWeight = 3.540188F;
-            this.acc_qnt.HeaderText = "帐存数量";
-            this.acc_qnt.MinimumWidth = 70;
-            this.acc_qnt.Name = "acc_qnt";
-            this.acc_qnt.ReadOnly = true;
-            this.acc_qnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 2;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
             // 
             // PrcTypetabPage
             // 
@@ -1552,6 +1554,105 @@
             // 
             this.SetPreInfoerrorProvider.ContainerControl = this;
             // 
+            // p_no
+            // 
+            this.p_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.p_no.DataPropertyName = "p_no";
+            this.p_no.FillWeight = 15F;
+            this.p_no.HeaderText = "宣传品编号";
+            this.p_no.Name = "p_no";
+            this.p_no.ReadOnly = true;
+            this.p_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.p_no.Width = 75;
+            // 
+            // pretype
+            // 
+            this.pretype.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.pretype.DataPropertyName = "pretype";
+            this.pretype.FillWeight = 15F;
+            this.pretype.HeaderText = "宣传品系列";
+            this.pretype.Name = "pretype";
+            this.pretype.ReadOnly = true;
+            this.pretype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.pretype.Width = 75;
+            // 
+            // p_name
+            // 
+            this.p_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.p_name.DataPropertyName = "p_name";
+            this.p_name.FillWeight = 8.032752F;
+            this.p_name.HeaderText = "宣传品名称";
+            this.p_name.MinimumWidth = 100;
+            this.p_name.Name = "p_name";
+            this.p_name.ReadOnly = true;
+            this.p_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // unit
+            // 
+            this.unit.DataPropertyName = "unit";
+            this.unit.FillWeight = 18.76229F;
+            this.unit.HeaderText = "单位";
+            this.unit.MinimumWidth = 50;
+            this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
+            this.unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // unit_price
+            // 
+            this.unit_price.DataPropertyName = "unit_price";
+            this.unit_price.FillWeight = 43.08511F;
+            this.unit_price.HeaderText = "销售价";
+            this.unit_price.MinimumWidth = 50;
+            this.unit_price.Name = "unit_price";
+            this.unit_price.ReadOnly = true;
+            this.unit_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cost_price
+            // 
+            this.cost_price.DataPropertyName = "cost_price";
+            this.cost_price.FillWeight = 1.579661F;
+            this.cost_price.HeaderText = "成本价";
+            this.cost_price.MinimumWidth = 50;
+            this.cost_price.Name = "cost_price";
+            this.cost_price.ReadOnly = true;
+            this.cost_price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // acc_qnt
+            // 
+            this.acc_qnt.DataPropertyName = "acc_qnt";
+            this.acc_qnt.FillWeight = 3.540188F;
+            this.acc_qnt.HeaderText = "帐存数量";
+            this.acc_qnt.MinimumWidth = 70;
+            this.acc_qnt.Name = "acc_qnt";
+            this.acc_qnt.ReadOnly = true;
+            this.acc_qnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 2;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // comboBoxQueryPreType
+            // 
+            this.comboBoxQueryPreType.FormattingEnabled = true;
+            this.comboBoxQueryPreType.Location = new System.Drawing.Point(94, 74);
+            this.comboBoxQueryPreType.Name = "comboBoxQueryPreType";
+            this.comboBoxQueryPreType.Size = new System.Drawing.Size(103, 20);
+            this.comboBoxQueryPreType.TabIndex = 49;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(7, 79);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 12);
+            this.label22.TabIndex = 48;
+            this.label22.Text = "宣传品系列";
+            // 
             // SetInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1716,6 +1817,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn power;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginUserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn out_ou;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vip_ou;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtUnitPrice2;
+        private System.Windows.Forms.TextBox txtUnitPrice1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtCostPrice2;
+        private System.Windows.Forms.TextBox txtCostPrice1;
+        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_no;
         private System.Windows.Forms.DataGridViewTextBoxColumn pretype;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_name;
@@ -1724,7 +1835,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cost_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn acc_qnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn out_ou;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vip_ou;
+        private System.Windows.Forms.ComboBox comboBoxQueryPreType;
+        private System.Windows.Forms.Label label22;
     }
 }

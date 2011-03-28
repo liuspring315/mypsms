@@ -14,6 +14,9 @@ namespace psms
 
     public partial class InOutTableForm : Form
     {
+        //是否已保存
+        private bool isSaved = false;
+        private bool isInSaved = false;
 
         //
         public ListBox ListBoxInTableP_no
@@ -409,6 +412,8 @@ namespace psms
                     this.dataGridViewIntable_PreInfoList.DataSource = null;
 
                     this.errorProvider.Clear();
+                    this.isSaved = false;
+                   
                 }
                 else
                 {
@@ -1323,6 +1328,39 @@ namespace psms
 
         private void buttonPrintOut_Click(object sender, EventArgs e)
         {
+            if (!this.isSaved)
+            {
+                if (MessageBox.Show("数据没有保存，现在保存？", "注意", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    try
+                    {
+                        if (this.dataGridViewOutTable_PreInfo.RowCount == 0)
+                        {
+                            MessageBox.Show("请给凭证添加宣传品", "注意", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return;
+                        }
+                        //保存
+                        if (saveNewOutTableInfo())
+                        {
+                            this.isSaved = true;
+                            this.btnOutTable_SaveAndExit.Enabled = false;
+                            this.btnOutTable_NextOutTable.Enabled = false;
+                            MessageBox.Show("新增出库凭证成功", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("新增出库凭证出错", "失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MyMessageBox.ShowErrorMessageBox("新增出库凭证", ex);
+                    }
+                }
+            }
+
+            
             try
             {
 
@@ -1443,6 +1481,39 @@ namespace psms
 
         private void buttonPrintIn_Click(object sender, EventArgs e)
         {
+            if (!this.isInSaved)
+            {
+                if (MessageBox.Show("数据没有保存，现在保存？", "注意", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    try
+                    {
+                        if (this.dataGridViewIntable_PreInfoList.RowCount == 0)
+                        {
+                            MessageBox.Show("请给凭证添加宣传品", "注意", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return;
+                        }
+                        //保存
+                        if (saveNewInTableInfo())
+                        {
+                            this.isInSaved = true;
+                            this.btnInTable_SaveAndExit.Enabled = false;
+                            this.btnInTable_NextTable.Enabled = false;
+                            MessageBox.Show("新增入库凭证成功", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("新增入库凭证出错", "失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MyMessageBox.ShowErrorMessageBox("新增入库凭证", ex);
+                    }
+                }
+            }
+
             try
             {
                 if (this.chk_word_in.Checked)

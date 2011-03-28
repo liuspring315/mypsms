@@ -32,11 +32,19 @@ namespace psms
         private void QueryPreInfoForm_Load(object sender, EventArgs e)
         {
             setDataGridColumnName();
-            IList<PreInfoData> preInfoList = new BLL.PreInfo().GetAllPreInfo();
+            IList<PreInfoData> preInfoList = (new BLL.PreInfo().GetAllPreInfo());
+            preInfoList.Insert(0, new PreInfoData("", "", 0));
             this.comboBoxP_no.DataSource = preInfoList;
             this.comboBoxP_no.DisplayMember = "p_no";
             this.comboBoxP_no.ValueMember = "p_no";
-            this.dataGridView1.DataSource = preInfoList;
+            this.dataGridView1.DataSource = new BLL.PreInfo().GetAllPreInfo();
+            //初始化宣传品系列下拉列表
+            BindingList < PreTypeInfo >  data = new BLL.PreType().GetAllPreTypeInfo();
+            data.Add(new PreTypeInfo(0,""));
+            this.cobPreType.DataSource = data;
+            this.cobPreType.DisplayMember = "typeName";
+            this.cobPreType.ValueMember = "typeName";
+            this.cobPreType.SelectedIndex = data.Count - 1;
         }
 
         private void checkBoxUnti_price_CheckedChanged(object sender, EventArgs e)
@@ -126,17 +134,7 @@ namespace psms
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            try
-            {
-                this.txtP_no.Text = DataGirdViewUtil.getSelectedRowsCellValue(this.dataGridView1, "ColumnP_no").Trim();
-                this.txtP_name.Text = DataGirdViewUtil.getSelectedRowsCellValue(this.dataGridView1, "ColumnP_name").Trim();
-                this.txt_qnt.Text = DataGirdViewUtil.getSelectedRowsCellValue(this.dataGridView1, "ColumnAcc_qnt").Trim();
-            }
-            catch (Exception ex)
-            {
-                MyMessageBox.ShowErrorMessageBox("库存量查询", ex);
-            }
-        
+
         }
 
         private void btnQuery_Click(object sender, EventArgs e)
@@ -148,6 +146,10 @@ namespace psms
                 if (this.comboBoxP_no.Text.Trim() != "")
                 {
                     condition.Append(" and p_no like '%").Append(this.comboBoxP_no.Text.Trim()).Append("%' ");
+                }
+                if (this.cobPreType.Text.Trim() != "")
+                {
+                    condition.Append(" and pretype = '").Append(this.cobPreType.Text.Trim()).Append("' ");
                 }
 
                 //销售价
@@ -280,12 +282,14 @@ namespace psms
         #region 私有方法
         private void setDataGridColumnName()
         {
-            this.dataGridView1.Columns["ColumnP_no"].DisplayIndex = 0;
-            this.dataGridView1.Columns["ColumnP_name"].DisplayIndex = 1;
-            this.dataGridView1.Columns["ColumnUnit"].DisplayIndex = 2;
-            this.dataGridView1.Columns["ColumnUnit_price"].DisplayIndex = 3;
-            this.dataGridView1.Columns["ColumnCost_price"].DisplayIndex = 4;
-            this.dataGridView1.Columns["ColumnAcc_qnt"].DisplayIndex = 5;
+            this.dataGridView1.Columns["ColChckBox"].DisplayIndex = 0;
+            this.dataGridView1.Columns["ColumnP_no"].DisplayIndex = 1;
+            this.dataGridView1.Columns["ColumnPretype"].DisplayIndex = 2;
+            this.dataGridView1.Columns["ColumnP_name"].DisplayIndex = 3;
+            this.dataGridView1.Columns["ColumnUnit"].DisplayIndex = 4;
+            this.dataGridView1.Columns["ColumnUnit_price"].DisplayIndex = 5;
+            this.dataGridView1.Columns["ColumnCost_price"].DisplayIndex = 6;
+            this.dataGridView1.Columns["ColumnAcc_qnt"].DisplayIndex = 7;
             this.dataGridView1.AutoGenerateColumns = false;
 
         }
@@ -295,39 +299,52 @@ namespace psms
 
         private void btnResetQnt_Click(object sender, EventArgs e)
         {
+            DateTime out_date = DateTime.Now;
+            string out_scrpno = StrUtil.Next(new BLL.OutTable().GetTopOutScrpNo());
+            string out_ou = "库存清零";
+            string vip_ou = "库存清零";
+            string out_memo = "库存清零生成的出库凭证";
+            decimal outTableCast = 0;
+            BindingList<OutScrpInfo> outScrpList = new BindingList<OutScrpInfo>();
             try
             {
-                string pno = this.txtP_no.Text.Trim();
-                if (pno == "")
+                foreach (DataGridViewRow dgR in this.dataGridView1.Rows)
                 {
-                    MessageBox.Show("请选择一个宣传品","提示",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)dgR.Cells["ColChckBox"];
+                    if ((bool)cbx.FormattedValue)
+                    {
+                        string pno = dgR.Cells["ColumnP_no"].Value.ToString().Trim();
+                        decimal unit_price = decimal.Parse(dgR.Cells["ColumnUnit_price"].Value.ToString().Trim());
+                        int qnt = Int32.Parse(dgR.Cells["ColumnAcc_qnt"].Value.ToString().Trim());
+
+                        if (qnt == 0)
+                        {
+                            MessageBox.Show("'" + dgR.Cells["ColumnP_name"].Value.ToString().Trim() + "'的库存已经为零，无需清零，请取消选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            dgR.Selected = true;
+                            dataGridView1.CurrentCell = dgR.Cells[0];
+                            return;
+                        }
+                        decimal out_cost = unit_price * qnt;
+                        outTableCast = outTableCast + out_cost;
+                        OutScrpInfo outScrp = new OutScrpInfo(0, out_scrpno, pno, qnt, out_cost);
+                        outScrpList.Add(outScrp);
+                    }
+                }
+                if (outScrpList.Count == 0)
+                {
+                    MessageBox.Show("请选择要清零的油品", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                string out_scrpno = "reset_" + pno;
-                DateTime out_date = DateTime.Now;
-                decimal unit_price = decimal.Parse(util.DataGirdViewUtil.getSelectedRowsCellValue(this.dataGridView1, "ColumnUnit_price").Trim());
-                int qnt = Int32.Parse(util.DataGirdViewUtil.getSelectedRowsCellValue(this.dataGridView1, "ColumnAcc_qnt").Trim());
-
-                if (qnt == 0)
-                {
-                    MessageBox.Show("所选宣传品的库存已经为零，无需清零", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
-                }
-
-                decimal out_cost = unit_price * qnt;
-                string out_ou = "库存清零";
-                string vip_ou = "库存清零";
-                string out_memo = "库存清零生成的出库凭证";
-                if (MessageBox.Show("确认清零库存？", "确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("确认清零" + outScrpList.Count + "个选中邮品的库存？", "确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     //string out_scrpno, string out_ou, string out_date, decimal out_cost, string vip_ou,
                     //int out_acc,string out_memo
-                    OutTableInfo aOutTableInfo = new OutTableInfo(out_scrpno, out_ou, out_date, out_cost, vip_ou, 0, out_memo);
-                    BindingList<OutScrpInfo> outScrpList = new BindingList<OutScrpInfo>();
-                    OutScrpInfo outScrp = new OutScrpInfo(0, out_scrpno, pno, qnt, out_cost);
-                    outScrpList.Add(outScrp);
+
+                    OutTableInfo aOutTableInfo = new OutTableInfo(out_scrpno, out_ou, out_date, outTableCast, vip_ou, 0, out_memo);
                     aOutTableInfo.OutScrpList = outScrpList;
+                    
+                    
                     if (new BLL.OutTable().insertOutTable(aOutTableInfo))
                     {
                         MessageBox.Show("清零库存成功，系统自动生成了一个凭证编号为" + out_scrpno + "的出库凭证", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -340,6 +357,27 @@ namespace psms
             }
 
         }
+
+
+        private void buttonSelectAll_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow dgR in this.dataGridView1.Rows)
+            {
+                try
+                {
+                    DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)dgR.Cells[0];
+                    cbx.Value = true;
+
+                }
+                catch (Exception ex)
+                {
+                    MyMessageBox.ShowErrorMessageBox("全选", ex);
+                }
+
+
+            }
+        }
+
 
 
     }

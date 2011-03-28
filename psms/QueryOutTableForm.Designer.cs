@@ -65,6 +65,14 @@
             this.checkBoxOut_cost = new System.Windows.Forms.CheckBox();
             this.checkBoxOut_date = new System.Windows.Forms.CheckBox();
             this.checkBoxOut_scrpno = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtUnitPrice2 = new System.Windows.Forms.TextBox();
+            this.txtUnitPrice1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCostPrice2 = new System.Windows.Forms.TextBox();
+            this.txtCostPrice1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +164,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txtUnitPrice2);
+            this.groupBox1.Controls.Add(this.txtUnitPrice1);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtCostPrice2);
+            this.groupBox1.Controls.Add(this.txtCostPrice1);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.checkBoxConditionDate);
             this.groupBox1.Controls.Add(this.txtPreInfo);
             this.groupBox1.Controls.Add(this.comboBoxVip_ou);
@@ -202,7 +218,7 @@
             // 
             // txtPreInfo
             // 
-            this.txtPreInfo.Location = new System.Drawing.Point(408, 90);
+            this.txtPreInfo.Location = new System.Drawing.Point(408, 77);
             this.txtPreInfo.Name = "txtPreInfo";
             this.txtPreInfo.Size = new System.Drawing.Size(179, 21);
             this.txtPreInfo.TabIndex = 25;
@@ -212,7 +228,7 @@
             this.comboBoxVip_ou.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxVip_ou.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxVip_ou.FormattingEnabled = true;
-            this.comboBoxVip_ou.Location = new System.Drawing.Point(408, 57);
+            this.comboBoxVip_ou.Location = new System.Drawing.Point(408, 50);
             this.comboBoxVip_ou.Name = "comboBoxVip_ou";
             this.comboBoxVip_ou.Size = new System.Drawing.Size(179, 20);
             this.comboBoxVip_ou.TabIndex = 24;
@@ -220,7 +236,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(331, 65);
+            this.label8.Location = new System.Drawing.Point(331, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 23;
@@ -286,7 +302,7 @@
             this.comboBoxOut_acc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxOut_acc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxOut_acc.FormattingEnabled = true;
-            this.comboBoxOut_acc.Location = new System.Drawing.Point(408, 153);
+            this.comboBoxOut_acc.Location = new System.Drawing.Point(408, 132);
             this.comboBoxOut_acc.Name = "comboBoxOut_acc";
             this.comboBoxOut_acc.Size = new System.Drawing.Size(179, 20);
             this.comboBoxOut_acc.TabIndex = 16;
@@ -297,7 +313,7 @@
             this.comboBoxOut_ou.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxOut_ou.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxOut_ou.FormattingEnabled = true;
-            this.comboBoxOut_ou.Location = new System.Drawing.Point(408, 21);
+            this.comboBoxOut_ou.Location = new System.Drawing.Point(408, 22);
             this.comboBoxOut_ou.Name = "comboBoxOut_ou";
             this.comboBoxOut_ou.Size = new System.Drawing.Size(179, 20);
             this.comboBoxOut_ou.TabIndex = 14;
@@ -305,7 +321,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(331, 156);
+            this.label7.Location = new System.Drawing.Point(331, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 13;
@@ -315,7 +331,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(331, 129);
+            this.label6.Location = new System.Drawing.Point(331, 112);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 12;
@@ -324,16 +340,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(331, 97);
+            this.label5.Location = new System.Drawing.Point(331, 84);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 11;
             this.label5.Text = "宣传品信息";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(331, 29);
+            this.label4.Location = new System.Drawing.Point(331, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 10;
@@ -376,7 +392,7 @@
             // 
             // txtOut_memo
             // 
-            this.txtOut_memo.Location = new System.Drawing.Point(408, 120);
+            this.txtOut_memo.Location = new System.Drawing.Point(408, 103);
             this.txtOut_memo.Name = "txtOut_memo";
             this.txtOut_memo.Size = new System.Drawing.Size(179, 21);
             this.txtOut_memo.TabIndex = 5;
@@ -428,6 +444,70 @@
             this.checkBoxOut_scrpno.Text = "区间";
             this.checkBoxOut_scrpno.UseVisualStyleBackColor = true;
             this.checkBoxOut_scrpno.CheckedChanged += new System.EventHandler(this.checkBoxOut_scrpno_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(489, 186);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 12);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "至";
+            // 
+            // txtUnitPrice2
+            // 
+            this.txtUnitPrice2.Location = new System.Drawing.Point(513, 181);
+            this.txtUnitPrice2.Name = "txtUnitPrice2";
+            this.txtUnitPrice2.Size = new System.Drawing.Size(74, 21);
+            this.txtUnitPrice2.TabIndex = 46;
+            // 
+            // txtUnitPrice1
+            // 
+            this.txtUnitPrice1.Location = new System.Drawing.Point(408, 181);
+            this.txtUnitPrice1.Name = "txtUnitPrice1";
+            this.txtUnitPrice1.Size = new System.Drawing.Size(77, 21);
+            this.txtUnitPrice1.TabIndex = 45;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(342, 184);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "销售价";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(489, 163);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 12);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "至";
+            // 
+            // txtCostPrice2
+            // 
+            this.txtCostPrice2.Location = new System.Drawing.Point(513, 158);
+            this.txtCostPrice2.Name = "txtCostPrice2";
+            this.txtCostPrice2.Size = new System.Drawing.Size(74, 21);
+            this.txtCostPrice2.TabIndex = 42;
+            // 
+            // txtCostPrice1
+            // 
+            this.txtCostPrice1.Location = new System.Drawing.Point(408, 158);
+            this.txtCostPrice1.Name = "txtCostPrice1";
+            this.txtCostPrice1.Size = new System.Drawing.Size(77, 21);
+            this.txtCostPrice1.TabIndex = 41;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(342, 161);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "成本价";
             // 
             // QueryOutTableForm
             // 
@@ -488,5 +568,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOut_Acc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOut_memo;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnButton;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtUnitPrice2;
+        private System.Windows.Forms.TextBox txtUnitPrice1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtCostPrice2;
+        private System.Windows.Forms.TextBox txtCostPrice1;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -203,8 +203,8 @@ namespace psms
                 dt = new BLL.OutTable().GetOutTableDataTableForStatQntSum(startTime, endTime, conditon.ToString());
                 this.dataGridView1.DataSource = dt;
 
-                getScrpNoSql[0] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_date asc,outtable.out_scrpno asc";
-                getScrpNoSql[1] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_date desc,outtable.out_scrpno desc";
+                getScrpNoSql[0] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_scrpno asc,outtable.out_date asc";
+                getScrpNoSql[1] = "select top 1 outtable.out_scrpno from outtable,outscrp,preinfo where preinfo.p_no=outscrp.p_no and outscrp.out_scrpno = outtable.out_scrpno and out_date >= '" + startTime + "' and out_date <='" + endTime + "' " + conditon.ToString() + " order by outtable.out_scrpno desc,outtable.out_date desc";
             }
             catch (Exception ex)
             {
