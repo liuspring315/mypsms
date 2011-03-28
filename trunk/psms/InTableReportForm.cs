@@ -241,8 +241,8 @@ namespace psms
                 //util.ReportUtil.setDataForAxlgxgrid(list, this.axlgxgridInTableReport, 1);
                 this.dataGridView1.DataSource = dt;
 
-                getScrpNoSql[0] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_date asc,intable.in_scrpno asc";
-                getScrpNoSql[1] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_date desc,intable.in_scrpno desc";
+                getScrpNoSql[0] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_scrpno asc,intable.in_date asc";
+                getScrpNoSql[1] = "select top 1 intable.in_scrpno from intable,inscrp,preinfo where intable.in_scrpno = inscrp.in_scrpno and inscrp.p_no=preinfo.p_no and in_date >= '" + startTime + "' and in_date <='" + endTime + "' " + conditon.ToString() + " order by intable.in_scrpno desc,intable.in_date desc";
             }
             catch (Exception ex)
             {
