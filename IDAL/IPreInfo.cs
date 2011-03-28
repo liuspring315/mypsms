@@ -17,6 +17,7 @@ namespace psms.IDAL
         /// </summary>
         /// <returns>Interface to Model Collection Generic of the results</returns>
         IList<PreInfoData> GetAllPreInfo();
+        IList<PreInfoData> GetAllPreInfoByCondition(string condition);
 
         /// <summary>
         /// 按礼品编号查询
