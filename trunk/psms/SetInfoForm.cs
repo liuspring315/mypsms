@@ -117,6 +117,14 @@ namespace psms
                 this.cobPreType.DataSource = new BLL.PreType().GetAllPreTypeInfo();
                 this.cobPreType.DisplayMember = "typeName";
                 this.cobPreType.ValueMember = "typeName";
+
+                BindingList < PreTypeInfo >  preTypeList = new BLL.PreType().GetAllPreTypeInfo();
+                preTypeList.Add(new PreTypeInfo(0,""));
+                this.comboBoxQueryPreType.DataSource = preTypeList;
+                this.comboBoxQueryPreType.DisplayMember = "typeName";
+                this.comboBoxQueryPreType.ValueMember = "typeName";
+                this.comboBoxQueryPreType.SelectedIndex = preTypeList.Count - 1;
+
             }
             catch (Exception ex)
             {
@@ -373,26 +381,76 @@ namespace psms
         {
             try
             {
-                BLL.PreInfo preInfoBll = new psms.BLL.PreInfo();
-                IList<PreInfoData> preInfoData = preInfoBll.GetAllPreInfo();
-                IList<PreInfoData> data = new List<PreInfoData>();
+                
+                //IList<PreInfoData> data = new List<PreInfoData>();
                 string pno = this.txtPreInfoQueryPNo.Text.Trim();
-                if (pno == "")
+                StringBuilder condition = new StringBuilder(" where 1=1 ");
+                if (pno != "" && pno != "输入宣传品编号模糊搜索")
                 {
-                    setPreDataGridViewDataSource(preInfoData);
+                    condition.Append(" and  (P_NO + p_NAME LIKE '%").Append(pno).Append("%')");
+
                 }
-                else
+                if (comboBoxQueryPreType.Text.Trim() != "")
                 {
-                    for (int i = 0; i < preInfoData.Count; i++)
+                    condition.Append(" and  (pretype = '").Append(comboBoxQueryPreType.Text.Trim()).Append("')");
+                }
+                //成本价
+                if (this.txtCostPrice1.Text.Trim() != "")
+                {
+                    try
                     {
-                        PreInfoData preInfo = preInfoData[i];
-                        if ((preInfo.P_no + preInfo.P_name).Contains(pno))
-                        {
-                            data.Add(preInfo);
-                        }
+                        Decimal.Parse(this.txtCostPrice1.Text.Trim());
                     }
-                    setPreDataGridViewDataSource(data);
+                    catch
+                    {
+                        MessageBox.Show("成本价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.cost_price >= ").Append(this.txtCostPrice1.Text.Trim());
                 }
+                if (this.txtCostPrice2.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtCostPrice2.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("成本价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.cost_price <= ").Append(this.txtCostPrice2.Text.Trim());
+                }
+                //销售价
+                if (this.txtUnitPrice1.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtUnitPrice1.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("销售价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.unit_price >= ").Append(this.txtUnitPrice1.Text.Trim());
+                }
+                if (this.txtUnitPrice2.Text.Trim() != "")
+                {
+                    try
+                    {
+                        Decimal.Parse(this.txtUnitPrice2.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("销售价请输入数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    condition.Append(" and p.unit_price <= ").Append(this.txtUnitPrice2.Text.Trim());
+                }
+                BLL.PreInfo preInfoBll = new psms.BLL.PreInfo();
+                IList<PreInfoData> preInfoData = preInfoBll.GetAllPreInfoByCondition(condition.ToString());
+                setPreDataGridViewDataSource(preInfoData);
             }
             catch (Exception ex)
             {

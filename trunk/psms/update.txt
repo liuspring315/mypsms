@@ -60,3 +60,60 @@ zhaochun 说:
  //增加了库存统计报表窗口
  //增加了直接从入库凭证出库的按钮
  更新至3.1.0
+ 
+ 
+ 2010年1月29日
+ zhaochun 说:
+ 刘老师，告诉我 要改的邮品编号  要改成什么？
+ 还有刚才说的编号1-98的问题 我点哪才能出来？
+ 刘老师，告诉我 要改的邮品编号  要改成什么？
+ 还有刚才说的编号1-98的问题 我点哪才能出来？
+刘燕东 说:
+ 一个是2009年中档册的邮品编号“年册”改为“PCN-2010-01",一个是2009年活页册“PCN-2010-03"改为“PCN-2010-10",一个是礼品册A款“PCN-2010-10"改为“PCN-2010-03"
+
+修改邮品编号录入错误想修改
+考虑到数据的完整性，没有添加修改邮品编号的功能
+如果邮品是刚刚新增的，还没有添加入库和出库
+那么可以在系统维护中将该邮品删除，再重新录入
+如果邮品已经有入库或出库
+那么该邮品不能再被删除
+可以删除出库和入库凭证，再删除该邮品，再重新录入 以达到目的
+
+这次有三个邮品需要改编号
+更新sql：
+update PREINFO set p_no = 'PCN-2010-01' where P_NO = '年册'
+update PREINFO set p_no = 'PCN-2010-10temp' where P_NO = 'PCN-2010-03'
+update PREINFO set p_no = 'PCN-2010-03' where P_NO = 'PCN-2010-10'
+update PREINFO set p_no = 'PCN-2010-10' where P_NO = 'PCN-2010-10temp'
+
+update INSCRP set p_no = 'PCN-2010-01' where P_NO = '年册'
+update INSCRP set p_no = 'PCN-2010-10temp' where P_NO = 'PCN-2010-03'
+update INSCRP set p_no = 'PCN-2010-03' where P_NO = 'PCN-2010-10'
+update INSCRP set p_no = 'PCN-2010-10' where P_NO = 'PCN-2010-10temp'
+
+update OUTSCRP set p_no = 'PCN-2010-01' where P_NO = '年册'
+update OUTSCRP set p_no = 'PCN-2010-10temp' where P_NO = 'PCN-2010-03'
+update OUTSCRP set p_no = 'PCN-2010-03' where P_NO = 'PCN-2010-10'
+update OUTSCRP set p_no = 'PCN-2010-10' where P_NO = 'PCN-2010-10temp'
+
+另外 修改了进销存报表中 显示凭证编号去top1 sql语句中 排序
+in_date desc,in_scrpno desc
+改成了
+in_scrpno desc,in_date desc
+其他类似一样修改
+
+因为有的in_date只精确到年月日，有的却精确到毫秒，这样会造成精确到毫秒的记录排在前面
+ 更新至3.1.1
+ 
+ 
+ 2010年2月24日
+ 为库存清零功能添加按系列清零
+ 添加了查询条件 按系列
+ 在DataGridView中添加了复选框 将选中的邮品清零 自动生成出库单
+ DataGridView添加了系列一列
+ 将直接修改库存功能隐藏掉 已跟刘老师确认 这是不需要的
+ 盘存功能也很少用 暂时先放着
+ 
+ 在邮品维护中添加了按系列查询
+ 在邮品维护中也可修改库存数，但不会生出入库或出库单 最好不要修改 否则导致进销存数对不上
+ 更新至3.1.2

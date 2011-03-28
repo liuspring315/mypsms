@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryInTableForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtUnitPrice2 = new System.Windows.Forms.TextBox();
+            this.txtUnitPrice1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCostPrice2 = new System.Windows.Forms.TextBox();
+            this.txtCostPrice1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtGoodNo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -77,6 +85,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txtUnitPrice2);
+            this.groupBox1.Controls.Add(this.txtUnitPrice1);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtCostPrice2);
+            this.groupBox1.Controls.Add(this.txtCostPrice1);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtGoodNo);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -113,6 +129,70 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(650, 89);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 12);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "至";
+            // 
+            // txtUnitPrice2
+            // 
+            this.txtUnitPrice2.Location = new System.Drawing.Point(674, 84);
+            this.txtUnitPrice2.Name = "txtUnitPrice2";
+            this.txtUnitPrice2.Size = new System.Drawing.Size(74, 21);
+            this.txtUnitPrice2.TabIndex = 38;
+            // 
+            // txtUnitPrice1
+            // 
+            this.txtUnitPrice1.Location = new System.Drawing.Point(569, 84);
+            this.txtUnitPrice1.Name = "txtUnitPrice1";
+            this.txtUnitPrice1.Size = new System.Drawing.Size(77, 21);
+            this.txtUnitPrice1.TabIndex = 37;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(522, 87);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.TabIndex = 36;
+            this.label14.Text = "销售价";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(650, 54);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 12);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "至";
+            // 
+            // txtCostPrice2
+            // 
+            this.txtCostPrice2.Location = new System.Drawing.Point(674, 49);
+            this.txtCostPrice2.Name = "txtCostPrice2";
+            this.txtCostPrice2.Size = new System.Drawing.Size(74, 21);
+            this.txtCostPrice2.TabIndex = 34;
+            // 
+            // txtCostPrice1
+            // 
+            this.txtCostPrice1.Location = new System.Drawing.Point(569, 49);
+            this.txtCostPrice1.Name = "txtCostPrice1";
+            this.txtCostPrice1.Size = new System.Drawing.Size(77, 21);
+            this.txtCostPrice1.TabIndex = 33;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(522, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "成本价";
             // 
             // txtGoodNo
             // 
@@ -189,7 +269,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(640, 145);
+            this.btnClose.Location = new System.Drawing.Point(592, 157);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 22;
@@ -199,7 +279,7 @@
             // 
             // btnAllQuery
             // 
-            this.btnAllQuery.Location = new System.Drawing.Point(640, 99);
+            this.btnAllQuery.Location = new System.Drawing.Point(640, 116);
             this.btnAllQuery.Name = "btnAllQuery";
             this.btnAllQuery.Size = new System.Drawing.Size(75, 23);
             this.btnAllQuery.TabIndex = 21;
@@ -209,7 +289,7 @@
             // 
             // btnConditionQuery
             // 
-            this.btnConditionQuery.Location = new System.Drawing.Point(640, 56);
+            this.btnConditionQuery.Location = new System.Drawing.Point(548, 116);
             this.btnConditionQuery.Name = "btnConditionQuery";
             this.btnConditionQuery.Size = new System.Drawing.Size(75, 23);
             this.btnConditionQuery.TabIndex = 20;
@@ -560,5 +640,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGoodAcc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIn_memo;
         private System.Windows.Forms.DataGridViewButtonColumn queryButton;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtCostPrice2;
+        private System.Windows.Forms.TextBox txtCostPrice1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtUnitPrice2;
+        private System.Windows.Forms.TextBox txtUnitPrice1;
+        private System.Windows.Forms.Label label14;
     }
 }
