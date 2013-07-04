@@ -504,8 +504,8 @@
             this.Name = "InTableReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "宣传品入库报表";
-            this.Load += new System.EventHandler(this.InTableReportForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InTableReportForm_FormClosed);
+            this.Load += new System.EventHandler(this.InTableReportForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

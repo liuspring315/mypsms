@@ -84,6 +84,8 @@ namespace psms.SQLServerDAL
         private const string PARM_ACCQNT = "@acc_qnt";
         private const string PARM_START = "@start";
         private const string PARM_END = "@end";
+        private const string PARM_INOU = "@inou";
+        private const string PARM_PLANIN = "@planin";
 
         #endregion
 
@@ -188,6 +190,35 @@ namespace psms.SQLServerDAL
                 SqlHelper.ExecuteNonQuery(conn, CommandType.Text, STORE_SPSTOREQNT4);
             }
             return list;
+        }
+
+
+        /// <summary>
+        /// 宣传品进销存统计 spStoreQnt2
+        /// </summary>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public DataTable GetDataTablePreInfoForStatInOutSumspStoreqnt2(string startTime, string endTime, string inou, string planin, string condition)
+        {
+            //IList<IList<string>> list = new List<IList<string>>();
+            DataTable dt = new DataTable();
+            SqlParameter[] parms = GetPreInfoForStatInOutSumParameters2();
+            parms[0].Value = startTime;
+            parms[1].Value = endTime;
+            parms[2].Value = inou;
+            parms[3].Value = planin;
+            //Execute the query against the database
+            using (SqlConnection conn = new SqlConnection(SqlHelper.ConnectionStringLocalTransaction))
+            {
+                // Scroll through the results
+                SqlHelper.ExecuteNonQuery(conn, CommandType.StoredProcedure, "spStoreQnt2", parms);
+                SqlDataReader rdr = SqlHelper.ExecuteReader(conn.ConnectionString, CommandType.Text, STORE_SPSTOREQNT2 + condition + " order by s.p_no", null);
+                dt = SqlHelper.DataReaderToTable(rdr);
+
+                SqlHelper.ExecuteNonQuery(conn, CommandType.Text, STORE_SPSTOREQNT4);
+            }
+            return dt;
         }
 
         /// <summary>
@@ -637,6 +668,29 @@ namespace psms.SQLServerDAL
                     new SqlParameter(PARM_END, SqlDbType.VarChar,50)};
 
                 SqlHelper.CacheParameters(STORE_SPSTOREQNT1, parms);
+            }
+
+            return parms;
+        }
+
+        /// <summary>
+        /// Internal function to get cached parameters
+        /// </summary>
+        /// <returns></returns>
+        private static SqlParameter[] GetPreInfoForStatInOutSumParameters2()
+        {
+            SqlParameter[] parms = SqlHelper.GetCachedParameters("spStoreqnt2");
+
+            if (parms == null)
+            {
+                parms = new SqlParameter[] {
+					
+                    new SqlParameter(PARM_START, SqlDbType.VarChar,50),
+                    new SqlParameter(PARM_END, SqlDbType.VarChar,50),
+                new SqlParameter(PARM_INOU, SqlDbType.VarChar,50),
+                new SqlParameter(PARM_PLANIN, SqlDbType.VarChar,50)};
+
+                SqlHelper.CacheParameters("spStoreqnt2", parms);
             }
 
             return parms;

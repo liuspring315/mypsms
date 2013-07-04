@@ -1,5 +1,0 @@
-bin\Debug\psms.Model.dll
-bin\Debug\psms.Model.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\psms.Model.dll
-obj\Debug\psms.Model.pdb

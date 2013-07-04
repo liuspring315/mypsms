@@ -41,6 +41,7 @@
             this.radioButtonMonth = new System.Windows.Forms.RadioButton();
             this.radioButtonYear = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.radioButtonThisPreInfo = new System.Windows.Forms.RadioButton();
             this.radioButtonAllPreInfo = new System.Windows.Forms.RadioButton();
             this.btnClose = new System.Windows.Forms.Button();
@@ -57,9 +58,18 @@
             this.o_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.e_qnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.e_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBoxPlan = new System.Windows.Forms.ComboBox();
+            this.radioButtonSelectPlan = new System.Windows.Forms.RadioButton();
+            this.radioButtonPlanAll = new System.Windows.Forms.RadioButton();
+            this.cobInTableIn_Ou = new System.Windows.Forms.ComboBox();
+            this.checkBoxQnt = new System.Windows.Forms.CheckBox();
+            this.checkBoxInOu = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInOutReport)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,7 +86,7 @@
             this.groupBox1.Controls.Add(this.radioButtonYear);
             this.groupBox1.Location = new System.Drawing.Point(12, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(584, 89);
+            this.groupBox1.Size = new System.Drawing.Size(437, 89);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "报表日期范围";
@@ -178,22 +188,33 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBoxQnt);
             this.groupBox2.Controls.Add(this.radioButtonThisPreInfo);
             this.groupBox2.Controls.Add(this.radioButtonAllPreInfo);
             this.groupBox2.Location = new System.Drawing.Point(12, 94);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(584, 48);
+            this.groupBox2.Size = new System.Drawing.Size(437, 48);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "报表宣传品范围";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(276, 294);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(143, 12);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "正在导出Excel,请稍后...";
+            this.label4.Visible = false;
             // 
             // radioButtonThisPreInfo
             // 
             this.radioButtonThisPreInfo.AutoSize = true;
             this.radioButtonThisPreInfo.Checked = true;
-            this.radioButtonThisPreInfo.Location = new System.Drawing.Point(117, 20);
+            this.radioButtonThisPreInfo.Location = new System.Drawing.Point(103, 20);
             this.radioButtonThisPreInfo.Name = "radioButtonThisPreInfo";
-            this.radioButtonThisPreInfo.Size = new System.Drawing.Size(95, 16);
+            this.radioButtonThisPreInfo.Size = new System.Drawing.Size(107, 16);
             this.radioButtonThisPreInfo.TabIndex = 2;
             this.radioButtonThisPreInfo.TabStop = true;
             this.radioButtonThisPreInfo.Text = "有出入库宣传品";
@@ -204,14 +225,14 @@
             this.radioButtonAllPreInfo.AutoSize = true;
             this.radioButtonAllPreInfo.Location = new System.Drawing.Point(16, 20);
             this.radioButtonAllPreInfo.Name = "radioButtonAllPreInfo";
-            this.radioButtonAllPreInfo.Size = new System.Drawing.Size(71, 16);
+            this.radioButtonAllPreInfo.Size = new System.Drawing.Size(83, 16);
             this.radioButtonAllPreInfo.TabIndex = 1;
             this.radioButtonAllPreInfo.Text = "全部宣传品";
             this.radioButtonAllPreInfo.UseVisualStyleBackColor = true;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(612, 87);
+            this.btnClose.Location = new System.Drawing.Point(644, 121);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -221,7 +242,7 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(612, 7);
+            this.btnQuery.Location = new System.Drawing.Point(644, 14);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 5;
@@ -231,7 +252,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(612, 47);
+            this.button1.Location = new System.Drawing.Point(644, 48);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -343,11 +364,107 @@
             this.e_price.ReadOnly = true;
             this.e_price.Width = 80;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(644, 83);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "导出Excel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboBoxPlan);
+            this.groupBox3.Controls.Add(this.radioButtonSelectPlan);
+            this.groupBox3.Controls.Add(this.radioButtonPlanAll);
+            this.groupBox3.Location = new System.Drawing.Point(455, 1);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(169, 89);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "计划范围";
+            // 
+            // comboBoxPlan
+            // 
+            this.comboBoxPlan.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxPlan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxPlan.Enabled = false;
+            this.comboBoxPlan.FormattingEnabled = true;
+            this.comboBoxPlan.Items.AddRange(new object[] {
+            "计划内",
+            "计划外"});
+            this.comboBoxPlan.Location = new System.Drawing.Point(16, 55);
+            this.comboBoxPlan.Name = "comboBoxPlan";
+            this.comboBoxPlan.Size = new System.Drawing.Size(148, 20);
+            this.comboBoxPlan.TabIndex = 5;
+            this.comboBoxPlan.Text = "计划内";
+            // 
+            // radioButtonSelectPlan
+            // 
+            this.radioButtonSelectPlan.AutoSize = true;
+            this.radioButtonSelectPlan.Location = new System.Drawing.Point(93, 20);
+            this.radioButtonSelectPlan.Name = "radioButtonSelectPlan";
+            this.radioButtonSelectPlan.Size = new System.Drawing.Size(71, 16);
+            this.radioButtonSelectPlan.TabIndex = 2;
+            this.radioButtonSelectPlan.Text = "选中计划";
+            this.radioButtonSelectPlan.UseVisualStyleBackColor = true;
+            this.radioButtonSelectPlan.CheckedChanged += new System.EventHandler(this.radioButtonSelectPlan_CheckedChanged);
+            // 
+            // radioButtonPlanAll
+            // 
+            this.radioButtonPlanAll.AutoSize = true;
+            this.radioButtonPlanAll.Checked = true;
+            this.radioButtonPlanAll.Location = new System.Drawing.Point(16, 20);
+            this.radioButtonPlanAll.Name = "radioButtonPlanAll";
+            this.radioButtonPlanAll.Size = new System.Drawing.Size(71, 16);
+            this.radioButtonPlanAll.TabIndex = 1;
+            this.radioButtonPlanAll.TabStop = true;
+            this.radioButtonPlanAll.Text = "全部计划";
+            this.radioButtonPlanAll.UseVisualStyleBackColor = true;
+            this.radioButtonPlanAll.CheckedChanged += new System.EventHandler(this.radioButtonPlanAll_CheckedChanged);
+            // 
+            // cobInTableIn_Ou
+            // 
+            this.cobInTableIn_Ou.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cobInTableIn_Ou.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cobInTableIn_Ou.FormattingEnabled = true;
+            this.cobInTableIn_Ou.Location = new System.Drawing.Point(503, 109);
+            this.cobInTableIn_Ou.Name = "cobInTableIn_Ou";
+            this.cobInTableIn_Ou.Size = new System.Drawing.Size(121, 20);
+            this.cobInTableIn_Ou.TabIndex = 11;
+            // 
+            // checkBoxQnt
+            // 
+            this.checkBoxQnt.AutoSize = true;
+            this.checkBoxQnt.Location = new System.Drawing.Point(233, 19);
+            this.checkBoxQnt.Name = "checkBoxQnt";
+            this.checkBoxQnt.Size = new System.Drawing.Size(144, 16);
+            this.checkBoxQnt.TabIndex = 5;
+            this.checkBoxQnt.Text = "包含库存为零的宣传品";
+            this.checkBoxQnt.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxInOu
+            // 
+            this.checkBoxInOu.AutoSize = true;
+            this.checkBoxInOu.Location = new System.Drawing.Point(455, 111);
+            this.checkBoxInOu.Name = "checkBoxInOu";
+            this.checkBoxInOu.Size = new System.Drawing.Size(48, 16);
+            this.checkBoxInOu.TabIndex = 12;
+            this.checkBoxInOu.Text = "货源";
+            this.checkBoxInOu.UseVisualStyleBackColor = true;
+            // 
             // InOutReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 532);
+            this.Controls.Add(this.checkBoxInOu);
+            this.Controls.Add(this.cobInTableIn_Ou);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridViewInOutReport);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnQuery);
@@ -359,14 +476,17 @@
             this.Name = "InOutReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "宣传品进销存报表";
-            this.Load += new System.EventHandler(this.InOutReportForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InOutReportForm_FormClosed);
+            this.Load += new System.EventHandler(this.InOutReportForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInOutReport)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -400,5 +520,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn o_total;
         private System.Windows.Forms.DataGridViewTextBoxColumn e_qnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn e_price;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboBoxPlan;
+        private System.Windows.Forms.RadioButton radioButtonSelectPlan;
+        private System.Windows.Forms.RadioButton radioButtonPlanAll;
+        private System.Windows.Forms.ComboBox cobInTableIn_Ou;
+        private System.Windows.Forms.CheckBox checkBoxQnt;
+        private System.Windows.Forms.CheckBox checkBoxInOu;
     }
 }

@@ -98,7 +98,13 @@ namespace psms.IDAL
         /// <param name="endTime"></param>
         /// <returns></returns>
         DataTable GetDataTablePreInfoForStatInOutSumspStoreqnt1(string startTime, string endTime, string condition);
-
+        /// <summary>
+        /// 宣传品进销存统计 调用存储过程spStoreQnt2
+        /// </summary>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        DataTable GetDataTablePreInfoForStatInOutSumspStoreqnt2(string startTime, string endTime, string inou, string planin, string condition);
         /// <summary>
         /// 查找入库凭证和出库凭证中是否有给定的p_no的记录
         /// </summary>

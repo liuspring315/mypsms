@@ -1529,6 +1529,11 @@ namespace psms
             }
         }
 
+        private void InTabletabPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
