@@ -1,5 +1,0 @@
-bin\Debug\psms.DBUtility.dll
-bin\Debug\psms.DBUtility.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\psms.DBUtility.dll
-obj\Debug\psms.DBUtility.pdb

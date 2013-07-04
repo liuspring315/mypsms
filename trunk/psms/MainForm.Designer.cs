@@ -172,9 +172,11 @@
             // 
             // LogFormStripMenuItem1
             // 
+            this.LogFormStripMenuItem1.Enabled = false;
             this.LogFormStripMenuItem1.Name = "LogFormStripMenuItem1";
             this.LogFormStripMenuItem1.Size = new System.Drawing.Size(184, 22);
             this.LogFormStripMenuItem1.Text = "操作日志查询";
+            this.LogFormStripMenuItem1.Visible = false;
             this.LogFormStripMenuItem1.Click += new System.EventHandler(this.LogFormStripMenuItem1_Click);
             // 
             // toolStripSeparator2

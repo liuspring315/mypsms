@@ -642,6 +642,7 @@
             this.InTabletabPage.TabIndex = 1;
             this.InTabletabPage.Text = "入库凭证录入";
             this.InTabletabPage.UseVisualStyleBackColor = true;
+            this.InTabletabPage.Click += new System.EventHandler(this.InTabletabPage_Click);
             // 
             // chk_word_in
             // 
@@ -907,8 +908,8 @@
             this.txtInTable_P_Name.Size = new System.Drawing.Size(218, 21);
             this.txtInTable_P_Name.TabIndex = 8;
             this.txtInTable_P_Name.TextChanged += new System.EventHandler(this.txtInTable_P_Name_TextChanged);
-            this.txtInTable_P_Name.Leave += new System.EventHandler(this.txtInTable_P_Name_Leave);
             this.txtInTable_P_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInTable_P_Name_KeyPress);
+            this.txtInTable_P_Name.Leave += new System.EventHandler(this.txtInTable_P_Name_Leave);
             // 
             // txtInTable_P_no
             // 
@@ -998,7 +999,7 @@
             // 
             // txtInTable_Billno
             // 
-            this.txtInTable_Billno.Location = new System.Drawing.Point(285, 49);
+            this.txtInTable_Billno.Location = new System.Drawing.Point(285, 61);
             this.txtInTable_Billno.Name = "txtInTable_Billno";
             this.txtInTable_Billno.Size = new System.Drawing.Size(121, 21);
             this.txtInTable_Billno.TabIndex = 15;
@@ -1011,7 +1012,7 @@
             this.cobInTable_PlanIn.Items.AddRange(new object[] {
             "计划内",
             "计划外"});
-            this.cobInTable_PlanIn.Location = new System.Drawing.Point(286, 17);
+            this.cobInTable_PlanIn.Location = new System.Drawing.Point(286, 24);
             this.cobInTable_PlanIn.Name = "cobInTable_PlanIn";
             this.cobInTable_PlanIn.Size = new System.Drawing.Size(121, 20);
             this.cobInTable_PlanIn.TabIndex = 14;
@@ -1020,7 +1021,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(214, 52);
+            this.label23.Location = new System.Drawing.Point(214, 64);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(65, 12);
             this.label23.TabIndex = 13;
@@ -1029,7 +1030,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(215, 23);
+            this.label24.Location = new System.Drawing.Point(215, 30);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(65, 12);
             this.label24.TabIndex = 12;
@@ -1037,7 +1038,7 @@
             // 
             // cobInTableIn_Date
             // 
-            this.cobInTableIn_Date.Location = new System.Drawing.Point(76, 46);
+            this.cobInTableIn_Date.Location = new System.Drawing.Point(76, 58);
             this.cobInTableIn_Date.Name = "cobInTableIn_Date";
             this.cobInTableIn_Date.Size = new System.Drawing.Size(120, 21);
             this.cobInTableIn_Date.TabIndex = 11;
@@ -1045,7 +1046,7 @@
             // txtInTableIn_Cost
             // 
             this.txtInTableIn_Cost.Enabled = false;
-            this.txtInTableIn_Cost.Location = new System.Drawing.Point(495, 47);
+            this.txtInTableIn_Cost.Location = new System.Drawing.Point(495, 59);
             this.txtInTableIn_Cost.Name = "txtInTableIn_Cost";
             this.txtInTableIn_Cost.Size = new System.Drawing.Size(121, 21);
             this.txtInTableIn_Cost.TabIndex = 9;
@@ -1056,22 +1057,22 @@
             this.cobInTableIn_Ou.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cobInTableIn_Ou.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cobInTableIn_Ou.FormattingEnabled = true;
-            this.cobInTableIn_Ou.Location = new System.Drawing.Point(496, 15);
+            this.cobInTableIn_Ou.Location = new System.Drawing.Point(496, 22);
             this.cobInTableIn_Ou.Name = "cobInTableIn_Ou";
             this.cobInTableIn_Ou.Size = new System.Drawing.Size(121, 20);
             this.cobInTableIn_Ou.TabIndex = 8;
             // 
             // txtInTableIn_Memo
             // 
-            this.txtInTableIn_Memo.Location = new System.Drawing.Point(76, 74);
+            this.txtInTableIn_Memo.Location = new System.Drawing.Point(76, 96);
             this.txtInTableIn_Memo.Multiline = true;
             this.txtInTableIn_Memo.Name = "txtInTableIn_Memo";
-            this.txtInTableIn_Memo.Size = new System.Drawing.Size(548, 62);
+            this.txtInTableIn_Memo.Size = new System.Drawing.Size(548, 40);
             this.txtInTableIn_Memo.TabIndex = 6;
             // 
             // txtInTableIn_Scrpno
             // 
-            this.txtInTableIn_Scrpno.Location = new System.Drawing.Point(77, 18);
+            this.txtInTableIn_Scrpno.Location = new System.Drawing.Point(77, 25);
             this.txtInTableIn_Scrpno.Name = "txtInTableIn_Scrpno";
             this.txtInTableIn_Scrpno.Size = new System.Drawing.Size(121, 21);
             this.txtInTableIn_Scrpno.TabIndex = 5;
@@ -1079,7 +1080,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(424, 50);
+            this.label12.Location = new System.Drawing.Point(424, 62);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 12);
             this.label12.TabIndex = 4;
@@ -1088,7 +1089,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(425, 21);
+            this.label13.Location = new System.Drawing.Point(425, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 3;
@@ -1097,7 +1098,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(5, 77);
+            this.label14.Location = new System.Drawing.Point(5, 93);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 2;
@@ -1106,7 +1107,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(5, 50);
+            this.label15.Location = new System.Drawing.Point(5, 62);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 12);
             this.label15.TabIndex = 1;
@@ -1115,7 +1116,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 25);
+            this.label16.Location = new System.Drawing.Point(6, 32);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 12);
             this.label16.TabIndex = 0;
@@ -1143,8 +1144,8 @@
             this.Name = "InOutTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出入库凭证录入";
-            this.Load += new System.EventHandler(this.InOutTableForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InOutTableForm_FormClosed);
+            this.Load += new System.EventHandler(this.InOutTableForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.OutTabletabPage.ResumeLayout(false);
             this.OutTabletabPage.PerformLayout();
